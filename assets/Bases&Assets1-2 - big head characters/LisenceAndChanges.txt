@@ -1,0 +1,25 @@
+----Attribute----
+CC-By-SA 3.0
+GPL 3.0
+
+**Please know what the licenses entail, ask if you have questions.
+
+Original Artwork: Curt
+http://opengameart.org/content/rpg-character-bases-assets
+
+----Changes----
+
+Version 1-1:
+-Gave zip file folders
+-Made dark guy/girl bases
+-Added different shades of guy/girl shirts & pants
+-Added Afro, White-Bun, Blonde-Medium-Straight to hair
+-Added an "Examples" Character File
+
+Version 1-2:
+
+--Please Get Free Program: GIMP, in order to view newest material neatly.  Helps with character creation and asset organization!
+
+-Added many color alterations (only in GIMP!)
+-Added a headband and a few more hairstyles.
+
