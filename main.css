@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+#room {
+  position: relative;
+  background-image: url('room.png');
+  width: 600px;
+  height: 500px;
+}
+
+.avatar {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 50px;
+  top: 300px;
+}
+
+#p1c {
+  background-image: url('assets/office_peeps.png');
+  left: 70px;
+  background-position: -55px -50px;
+}
+
+#p2c {
+  background-image: url('assets/office_peeps.png');
+  left: 140px;
+  background-position: -55px -50px;
+}
+
+#p3c {
+  background-image: url('assets/office_peeps.png');
+  left: 210px;
+  background-position: -55px -50px;
+}
+
+#p4c {
+  background-image: url('assets/office_peeps.png');
+  left: 280px;
+  background-position: -55px -50px;
+}
+
+#p5c {
+  background-image: url('assets/office_peeps.png');
+  left: 350px;
+  background-position: -55px -50px;
+}
