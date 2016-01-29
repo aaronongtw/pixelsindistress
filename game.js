@@ -6,7 +6,7 @@ var gamestate = {
     {name: "John"},
     {name: "John"},
   ],
-  activePerson: 0
+  activePerson: -1
 };
 
 var makeDialog = function(person) {
@@ -37,7 +37,7 @@ var renderScreen = function() {
     var dialog = makeDialog(gamestate.people[gamestate.activePerson]);
   }
   ReactDOM.render(
-    window.OurGame.room(gamestate.time, gamestate.people, dialog),
+    window.OurGame.room(gamestate.time, gamestate.people, dialog, pickPerson),
     document.getElementById('maindiv')
   );
 };
@@ -51,8 +51,9 @@ var startGame = function() {
   renderScreen();
 };
 
-var pickPerson = function() {
-
+var pickPerson = function(index) {
+  console.log(arguments);
+  gamestate.activePerson = index;
 };
 
 startGame();
