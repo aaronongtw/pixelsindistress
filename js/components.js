@@ -1,5 +1,3 @@
-window.OurGame = window.OurGame || {};
-
 window.OurGame.room = function(lvl, number) {
   var Rooms = [];
   for (var i = 0; i < number; i++) {
