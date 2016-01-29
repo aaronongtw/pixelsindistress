@@ -9,6 +9,7 @@ body {
   background-image: url('room.png');
   width: 600px;
   height: 500px;
+  margin: 5px auto; 
 }
 
 .avatar {
