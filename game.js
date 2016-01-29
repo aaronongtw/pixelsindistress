@@ -3,13 +3,11 @@ var gamestate = {
   time: 320,
   people: [
     {name: "John"},
-    {name: "John"},
-    {name: "John"},
+    {name: "Bob"},
+    {name: "Robert"},
   ],
   activePerson: -1
 };
-
-
 
 
 
@@ -35,6 +33,7 @@ var startGame = function() {
 var pickPerson = function(index) {
   console.log(arguments);
   gamestate.activePerson = index;
+  renderScreen();
 };
 
 startGame();
