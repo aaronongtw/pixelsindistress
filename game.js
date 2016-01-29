@@ -1,7 +1,11 @@
 
 var gamestate = {
   time: 320,
-  people: [{name: "John"}],
+  people: [
+    {name: "John"},
+    {name: "John"},
+    {name: "John"},
+  ],
   activePerson: 0
 };
 
