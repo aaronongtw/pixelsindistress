@@ -116,7 +116,9 @@ var popupclose = function() {
 var personLeave = function(person) {
   var idx = gamestate.people.indexOf(person);
   gamestate.people.splice(idx, 1);
-  gamestate.activePerson = null;
+  if (person == gamestate.activePerson) {
+    gamestate.activePerson = null;
+  }
   if (!gamestate.people.length) {
     dayOver();
   }
@@ -139,7 +141,6 @@ var checkPersonLeave = function(person) {
   if (person.stress <= 0) {
     person.animationOnly = true;
     setTimeout(function() { personLeave(person); }, 2000);
-
     gamestate.playerStats.morale++;
     gamestate.playerStats.money+=10;
     gamestate.newAlert('+$10 +1 Morale', 'green');

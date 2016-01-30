@@ -30,10 +30,22 @@ body {
 .explosion{
   background-position: 0px 0px !important;
   border: 0px;
-  width: 150px;
+  margin-top: 36px;
+  margin-left: -18px;
+  width: 100px;
+  height: 100px;
+  background: url("explosion.gif") no-repeat center center;
   background-size: contain;
-  height: 150px;
-  background: url("explosion.gif") no-repeat center center transparent;
+}
+.love{
+  background-position: 0px 0px !important;
+  border: 0px;
+  margin-top: 36px;
+  margin-left: -18px;
+  width: 100px;
+  height: 100px;
+  background: url("love.gif") no-repeat center center;
+  background-size: contain;
 }
 .patients {
   display: -webkit-inline-box;
