@@ -29,8 +29,8 @@ body {
 }
 
 .patients {
-  display: -webkit-box;
-  padding-top: 280px;
+  display: -webkit-inline-box;
+  padding-top: 249px;
   padding-left: 120px;
 }
 
