@@ -35,6 +35,9 @@ body {
   padding-left:10px;
 }
 
+#popupx{
+  float:right;
+}
 .tempBar
 {
   background-color: #E80000;

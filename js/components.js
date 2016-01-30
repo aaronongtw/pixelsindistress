@@ -16,7 +16,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson = ()=>[]) {
         </div>;
 };
 
-window.OurGame.makeDialog = function(person, personStepCallback) {
+window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var choices = [];
 
   var state = person.conversation[person.state];
@@ -25,10 +25,11 @@ window.OurGame.makeDialog = function(person, personStepCallback) {
     choices.push(<li onClick={personStepCallback.bind(this, person, state.options[i])}>{state.options[i].text}</li>);
   }
 
-  return <div className="dialog">
-      <div>{state.text}</div>
-      <ul>
-        {choices}
-      </ul>
-    </div>;
+  return <div id='dialogbox' className="dialog">
+            <div id='popupx' onClick={popupclose} >[X]</div>
+            <div>{state.text}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
 }
