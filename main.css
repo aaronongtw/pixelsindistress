@@ -27,14 +27,9 @@ body {
   border: 0px;
 
 }
-
-.good {
-  color: green;
+.explosion{
+  background: url("explosion.png") no-repeat center center transparent;
 }
-.bad {
-  color: red;
-}
-
 .patients {
   display: -webkit-inline-box;
   padding-top: 249px;

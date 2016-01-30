@@ -20,7 +20,7 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       </div>
     </div>
     <div ></div>
-        <button className='avatar' style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
+        <button className={p.stress>=p.maxStess ? “explosion”:”avatar”} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
   var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;
@@ -84,7 +84,7 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
   var choices = [];
   for (var i = 0; i < gameState.todaysPeople.length; i++) {
     var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
-    choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress: 
+    choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress:
       <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span></li>);
   }
 
@@ -114,4 +114,3 @@ var getStartScreen = function(gamestate) {
       <div className="startBtn" onClick={gamestate.startNewDay}>Begin</div>
     </div>;
 };
-
