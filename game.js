@@ -98,11 +98,18 @@ gamestate.timeToString = function(time) {
   var minutes = Math.trunc(dayTime - 60*hours);
 
   var ampm = "am";
+  if (hours >= 12) {
+    ampm = "pm";
+  }
   if (hours > 12) {
     hours -= 12;
   }
-  if (hours >= 12) {
-    ampm = "pm";
+
+  minutes = Math.trunc(minutes/10)*10;
+  if (minutes==0) {
+    minutes = "00";
+  } else {
+    minutes = "" + minutes;
   }
 
   return "" + hours + ":" + minutes + " " + ampm;
@@ -111,7 +118,7 @@ gamestate.timeToString = function(time) {
 window.setInterval(function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
-    gamestate.people[i].stress+=0.1;
+    gamestate.people[i].stress+=0.03;
   }
   renderScreen();
 }, 1000);
