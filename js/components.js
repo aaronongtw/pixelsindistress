@@ -87,28 +87,21 @@ for (var i = 0; i < state.options.length; i++) {
         popupclose
     } > < /p> < div > {
     state.text
-} < /div> < ul > {
-choices
-} < /ul> < /div > ];
+} < /div> < ul > {choices} < /ul> < /div > ];
 }
 
 window.OurGame.dayReport = function(gameState, popupclose) {
-    var day = gameState.DayNo;
-    var choices = [];
-    for (var i = 0; i < gameState.people.length; i++) {
-        choices.push( < li > {
-                gameState.people[i].name
-            } < /li>);
-        }
+  var day = gameState.DayNo;
+  var choices = [];
+  for (var i = 0; i < gameState.people.length; i++) {
+    choices.push(<li>{gameState.people[i].name}</li>);
+  }
 
-        return <div id = 'reportBox'
-        className = "report" >
-            < p className = 'close-thik'
-        onClick = {
-            popupclose
-        } > < /p> < div > Day {
-        day
-    } < /div> < ul > {
-    choices
-} < /ul> < /div > ;
+  return <div id='reportBox' className="report">
+            <p className='close-thik' onClick={popupclose} ></p>
+            <div>Day {day}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
 }
