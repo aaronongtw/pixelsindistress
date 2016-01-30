@@ -1,14 +1,15 @@
 
 .profile {
   border-radius: 6px;
-  background-color: rgba(188, 204, 51, 0.72);
-  width: 300px;
-  position: absolute;
-  bottom: 190px; 
-  left: 46%;
-  margin-left: -550px;
-  min-height: 300px;
-  padding: 10px;
+    background-color: rgba(255, 151, 74, 0.72);
+    width: 49%;
+    position: absolute;
+    /* bottom: 190px; */
+    top: 10px;
+    left: 70%;
+    margin-left: -550px;
+    /* min-height: 300px; */
+    padding: 2px;
 }
 
 .profile > ul {
