@@ -44,7 +44,6 @@ var startNewDay = function() {
   gamestate.todaysPeople = gamestate.people.slice();
   gamestate.activePerson = null;
   gamestate.showReport = false;
-
   for (var i = 0; i < gamestate.people.length; i++) {
         if (!gamestate.people[i].state) {
             gamestate.people[i].state = "start";
@@ -53,7 +52,7 @@ var startNewDay = function() {
         }
         gamestate.people[i].startOfDayStress = gamestate.people[i].stress;
     }
-
+  renderScreen();
 };
 
 gamestate.startNewDay = startNewDay;
