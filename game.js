@@ -120,6 +120,11 @@ window.setInterval(function() {
   for (var i = 0; i < gamestate.people.length; i++) {
     gamestate.people[i].stress+=1;
   }
+
+  if (gamestate.time >= maxTimeTicks) {
+    dayOver();
+  }
+
   renderScreen();
 }, 1000);
 
@@ -129,3 +134,7 @@ var startGame = function() {
 };
 
 startGame();
+
+var dayOver = function() {
+
+};
