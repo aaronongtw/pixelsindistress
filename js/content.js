@@ -1,7 +1,7 @@
 window.OurGame = window.OurGame || {}
 
 window.OurGame.characters = [{
-    name: 'Harlan Shufelt',
+    name: 'Paul Korzhyk',
     gender: 'M',
     age: 41,
     startStress: 12,
@@ -9,13 +9,13 @@ window.OurGame.characters = [{
     avatarPosition: 1,
     conversation: window.OurGame.conversations[0]
 }, {
-    name: 'Coleman Coplan',
+    name: 'Aaron Coleman',
     gender: 'M',
     age: 26,
     startStress: 17,
     maxStress: 40,
     avatarPosition: 4,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Gaston Lyles',
     gender: 'M',
@@ -23,7 +23,7 @@ window.OurGame.characters = [{
     startStress: 17,
     maxStress: 50,
     avatarPosition: 5,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Harris Mulhall',
     gender: 'M',
