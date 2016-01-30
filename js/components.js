@@ -1,12 +1,5 @@
-// var bx = 60, by = 52, w = 48, h = 148, gx=16, gy=52;
-// new PIXI.Rectangle(bx+i*(w+gx), by+j*(h+gy), w, h);
-
-
 window.OurGame.room = function(gamestate, people, dialog, pickPerson, report, profile = () => []) {
     var Rooms = [];
-
-
-
     for (var i = 0; i < people.length; i++) {
         var p = people[i];
         var shaker = '';
@@ -82,6 +75,9 @@ for (var i = 0; i < state.options.length; i++) {
     } < /li><li>
     Gender: {
         person.gender
+    } < /li><li>
+    Description: {
+        person.description
     } < /li> < /ul > < /div > ,
 
     < div id = 'dialogbox'

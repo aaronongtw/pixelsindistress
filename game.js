@@ -1,4 +1,3 @@
-
 var randomCharList = function() {
     var CharIndexList = []
     var CharList = []
@@ -23,57 +22,59 @@ var gamestate = {
 };
 
 var startNewDay = function() {
-  gamestate.dayNo ++;
-  gamestate.time = 0;
-  gamestate.people = randomCharList();
-  gamestate.activePerson = null;
-  gamestate.showReport = false;
+    gamestate.dayNo++;
+    gamestate.time = 0;
+    gamestate.people = randomCharList();
+    gamestate.activePerson = null;
+    gamestate.showReport = false;
 
-  for (var i = 0; i < gamestate.people.length; i++) {
-    if (gamestate.people[i].state) {
-      continue;
+    for (var i = 0; i < gamestate.people.length; i++) {
+        if (gamestate.people[i].state) {
+            continue;
+        }
+        gamestate.people[i].state = "start";
+        gamestate.people[i].stress = gamestate.people[i].startStress;
     }
-    gamestate.people[i].state = "start";
-    gamestate.people[i].stress = gamestate.people[i].startStress;
-  }
 };
 
 var pickPerson = function(index) {
-  gamestate.activePerson = gamestate.people[index];
-  gamestate.showReport = false;
-
-  renderScreen();
+    var audio = document.getElementById("audio")
+    audio.play()
+    gamestate.activePerson = gamestate.people[index];
+    gamestate.showReport = false;
+    renderScreen();
 };
 
 var personStepCallback = function(person, choice) {
 
-  if (choice.farewell) {
-    var idx = gamestate.people.indexOf(gamestate.activePerson);
-    gamestate.people.splice(idx, 1);
+    if (choice.farewell) {
+        var idx = gamestate.people.indexOf(gamestate.activePerson);
+        gamestate.people.splice(idx, 1);
+        gamestate.activePerson = null;
+        renderScreen();
+        return;
+    }
+
+    var nextStep = person.conversation[choice.next];
+
+    person.stress += nextStep.deltaStress || 0;
+    person.state = choice.next;
+
+    if (nextStep.winner) {
+        nextStep.options = [{
+            text: "Glad I could help. Have a nice weekend",
+            farewell: true
+        }];
+    }
+
+    renderScreen();
+};
+
+var popupclose = function() {
     gamestate.activePerson = null;
     renderScreen();
-    return;
-  }
-
-  var nextStep = person.conversation[choice.next];
-
-  person.stress += nextStep.deltaStress || 0;
-  person.state = choice.next;
-
-  if (nextStep.winner) {
-    nextStep.options = [{
-      text: "Glad I could help. Have a nice weekend",
-      farewell: true
-    }];
-  }
-
-  renderScreen();
 };
 
-var popupclose =  function(){
-  gamestate.activePerson = null;
-  renderScreen();
-};
 
 var renderScreen = function() {
     if (gamestate.activePerson) {
@@ -91,41 +92,41 @@ var renderScreen = function() {
 
 
 gamestate.timeToString = function(time) {
-  var step = (17-9)*60 / maxTimeTicks;
-  var dayTime = (9*60 + time*step);
+    var step = (17 - 9) * 60 / maxTimeTicks;
+    var dayTime = (9 * 60 + time * step);
 
-  var hours = Math.trunc(dayTime / 60);
-  var minutes = Math.trunc(dayTime - 60*hours);
+    var hours = Math.trunc(dayTime / 60);
+    var minutes = Math.trunc(dayTime - 60 * hours);
 
-  var ampm = "am";
-  if (hours >= 12) {
-    ampm = "pm";
-  }
-  if (hours > 12) {
-    hours -= 12;
-  }
+    var ampm = "am";
+    if (hours >= 12) {
+        ampm = "pm";
+    }
+    if (hours > 12) {
+        hours -= 12;
+    }
 
-  minutes = Math.trunc(minutes/10)*10;
-  if (minutes==0) {
-    minutes = "00";
-  } else {
-    minutes = "" + minutes;
-  }
+    minutes = Math.trunc(minutes / 10) * 10;
+    if (minutes == 0) {
+        minutes = "00";
+    } else {
+        minutes = "" + minutes;
+    }
 
-  return "" + hours + ":" + minutes + " " + ampm;
+    return "" + hours + ":" + minutes + " " + ampm;
 }
 
 window.setInterval(function() {
-  gamestate.time++;
-  for (var i = 0; i < gamestate.people.length; i++) {
-    gamestate.people[i].stress+=1;
-  }
-  renderScreen();
+    gamestate.time++;
+    for (var i = 0; i < gamestate.people.length; i++) {
+        gamestate.people[i].stress += 1;
+    }
+    renderScreen();
 }, 1000);
 
 var startGame = function() {
-  startNewDay();
-  renderScreen();
+    startNewDay();
+    renderScreen();
 };
 
 startGame();
