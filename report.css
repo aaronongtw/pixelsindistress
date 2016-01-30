@@ -1,0 +1,24 @@
+
+.report {
+  border-radius: 6px;
+background-color: rgba(188, 204, 51, 0.72);
+width: 300px;
+position: absolute;
+bottom: 0px;
+left: 46%;
+margin-left: -150px;
+min-height: 189px;
+padding: 20px;
+}
+
+.report > ul {
+  padding: 0;
+}
+
+.report > ul > li {
+  list-style: none;
+
+  background-color: #ffc;
+  padding: 4px;
+  margin: 5px 10px;
+}

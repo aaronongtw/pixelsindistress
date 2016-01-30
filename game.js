@@ -13,6 +13,7 @@ var randomCharList = function() {
 
 
 var gamestate = {
+    dayNo: 0,
     time: 320,
     people: randomCharList(),
     activePerson: -1
@@ -30,6 +31,9 @@ var popupclose =  function(){
 var renderScreen = function() {
     if (gamestate.activePerson >= 0 && gamestate.people.length) {
         var dialog = window.OurGame.makeDialog(gamestate.people[gamestate.activePerson],popupclose);
+    }
+    if (gamestate.activePerson < 1) {
+        var dialog = window.OurGame.dayReport(gamestate, popupclose)
     }
     ReactDOM.render(
         window.OurGame.room(gamestate.time, gamestate.people, dialog, pickPerson),

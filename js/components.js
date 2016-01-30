@@ -1,5 +1,5 @@
 window.OurGame = window.OurGame || {};
-window.OurGame.room = function(time, people, dialog, pickPerson = ()=>[]) {
+window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]) {
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
@@ -13,6 +13,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson = ()=>[]) {
             {Rooms}
           </div>
           {dialog}
+          {report}
         </div>;
 };
 
@@ -32,6 +33,22 @@ window.OurGame.makeDialog = function(person,popupclose) {
   return <div id='dialogbox' className="dialog">
             <div id='popupx' onClick={popupclose} >[X]</div>
             <div>{prompt}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
+}
+
+window.OurGame.dayReport = function(gameState, popupclose) {
+  var day = gameState.DayNo;
+  var choices = [];
+  for (var i = 0; i < gameState.people.length; i++) {
+    choices.push(<li>{gameState.people[i].name}</li>);
+  }
+
+  return <div id='reportBox' className="report">
+            <div id='popupx' onClick={popupclose} >[X]</div>
+            <div>Day {day}</div>
             <ul>
               {choices}
             </ul>
