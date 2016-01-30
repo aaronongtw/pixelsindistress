@@ -87,13 +87,14 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
 
   }
 
-  var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
+  var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>next day</div>;
   if (gameState.dayInProgress || gameState.gameOver) {
     nextBtn = null;
   }
   var gameover = null;
   if (gameState.gameOver) {
     gameover = <h1 className="gameover">Game Over</h1>;
+    nextBtn = <a href="javascript:window.location.reload()">Try Again</a>;
   }
 
   return <div className="startScreen">

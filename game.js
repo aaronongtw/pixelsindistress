@@ -111,7 +111,9 @@ var popupclose = function() {
 var personLeave = function(person) {
   var idx = gamestate.people.indexOf(person);
   gamestate.people.splice(idx, 1);
-  gamestate.activePerson = null;
+  if (person == gamestate.activePerson) {
+    gamestate.activePerson = null;
+  }
   if (!gamestate.people.length) {
     dayOver();
   }
