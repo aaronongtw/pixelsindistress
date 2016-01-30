@@ -74,6 +74,9 @@ min-height: 200px;
   margin-top: 60px;
   margin-bottom: 60px;
 }
+.startScreen h1.gameover {
+  margin-bottom: 30px;
+}
 
 .startScreen h2 {
   text-align: center;

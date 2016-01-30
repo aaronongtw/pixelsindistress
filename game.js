@@ -35,7 +35,7 @@ var gamestate = {
 var startNewDay = function() {
   gamestate.startdaymoney = gamestate.playerStats.money
   gamestate.startdaymorale = gamestate.playerStats.morale
-  gamestate.playerStats.morale++; 
+  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
@@ -201,6 +201,6 @@ var dayOver = function() {
   gamestate.activePerson = null;
 
   if (gamestate.playerStats.money < 0 || gamestate.playerStats.morality < 0) {
-    gamestate.gameover = true;
+    gamestate.gameOver = true;
   }
 };
