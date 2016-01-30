@@ -30,7 +30,15 @@ body {
   padding-left: 50px;
 }
 
+<<<<<<< HEAD
 #popupx{
+=======
+.beds{
+  padding-left:10px;
+}
+
+.popupx {
+>>>>>>> cc57cc4ddb3819dbd36133665b6844927e85c520
   float:right;
   cursor: pointer;
 }

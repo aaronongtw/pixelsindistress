@@ -17,6 +17,7 @@ padding: 20px;
 
 .dialog > ul > li {
   list-style: none;
+  cursor: pointer;
 
   background-color: #ffc;
   padding: 4px;

@@ -30,7 +30,11 @@ body {
   padding-left: 50px;
 }
 
-#popupx{
+.beds{
+  padding-left:10px;
+}
+
+.popupx {
   float:right;
   cursor: pointer;
 }
