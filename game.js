@@ -4,59 +4,66 @@ var characters = [{
     age: 41,
     startStress: 12,
     maxStress: 35,
-    avatarPosition: 1
+    avatarPosition: 1,
+    storyState: 0
 }, {
     name: 'Coleman Coplan',
     gender: 'M',
     age: 26,
     startStress: 17,
     maxStress: 40,
-    avatarPosition: 4
+    avatarPosition: 4,
+    storyState: 0
 }, {
     name: 'Gaston Lyles',
     gender: 'M',
     age: 38,
     startStress: 17,
     maxStress: 50,
-    avatarPosition: 5
+    avatarPosition: 5,
+    storyState: 0
 }, {
     name: 'Harris Mulhall',
     gender: 'M',
     age: 18,
     startStress: 5,
     maxStress: 20,
-    avatarPosition: 7
+    avatarPosition: 7,
+    storyState: 0
 }, {
     name: 'August Bartkowiak',
     gender: 'M',
     age: 23,
     startStress: 35,
     maxStress: 50,
-    avatarPosition: 8
+    avatarPosition: 8,
+    storyState: 0
 }, {
     name: 'Andy Colston',
     gender: 'M',
     age: 35,
     startStress: 35,
     maxStress: 50,
-    avatarPosition: 10
+    avatarPosition: 10,
+    storyState: 0
 }, {
     name: 'Huey Hanney',
     gender: 'M',
     age: 35,
     startStress: 35,
     maxStress: 50,
-    avatarPosition: 11
+    avatarPosition: 11,
+    storyState: 0
 }, {
     name: 'Omar Groom',
     gender: 'M',
     age: 35,
     startStress: 35,
     maxStress: 50,
-    avatarPosition: 12
+    avatarPosition: 12,
+    storyState: 0
 }]
 
-<<<<<<< HEAD
 var newDay = {
   indexList : randomCharList()
 }
