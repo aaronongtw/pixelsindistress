@@ -1,11 +1,15 @@
+// var bx = 60, by = 52, w = 48, h = 148, gx=16, gy=52;
+// new PIXI.Rectangle(bx+i*(w+gx), by+j*(h+gy), w, h);
+
 window.OurGame = window.OurGame || {};
 window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]) {
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
+    console.log(p.avatarPosition)
     Rooms.push(<div className='beds' onClick={pickPerson.bind(i,i)}>
         <div className='tempBar'>{p.stress} / {p.maxStress}</div>
-        <button className='avatar' ></button>
+        <button className='avatar' style={{'background-position': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
   return <div id="room">
