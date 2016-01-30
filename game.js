@@ -19,8 +19,11 @@ var randomCharList = function() {
 };
 
 var maxTimeTicks = 40;
+var stressTick = 1;
 
 var gamestate = {
+    nurse: 0,
+    chocolate: 0,
     dayNo: 0,
     time: 0,
     dayInProgress: false,
@@ -29,8 +32,8 @@ var gamestate = {
     activePerson: null,
     showReport: false,
     playerStats : {
-    money: 50,
-    morale: 9}
+    money: 30,
+    morale: 4}
 };
 
 var startNewDay = function() {
@@ -151,7 +154,7 @@ var renderScreen = function() {
         var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose)
     }
     if (!gamestate.activePerson && gamestate.showReport) {
-        var dialog = window.OurGame.dayReport(gamestate, startNewDay);
+        var dialog = window.OurGame.dayReport(gamestate, startNewDay, buyNurse, buyChocolates);
     }
 
     ReactDOM.render(
@@ -159,6 +162,20 @@ var renderScreen = function() {
         document.getElementById('maindiv')
     );
 };
+
+var buyNurse = function() {
+    gamestate.nurse = 1
+    gamestate.playerStats.money -= 100
+    maxTimeTicks += 20
+    renderScreen()
+}
+
+var buyChocolates = function() {
+    gamestate.chocolate = 1
+    gamestate.playerStats.money -= 80
+    stressTick -= 0.2
+    renderScreen()
+}
 
 
 gamestate.timeToString = function(time) {
@@ -203,7 +220,7 @@ gamestate.newAlert = function(alert, colour) {
 var timeProgress = function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
-      gamestate.people[i].stress += 1;
+      gamestate.people[i].stress += stressTick;
       checkPersonLeave(gamestate.people[i]);
   }
   if (gamestate.time >= maxTimeTicks) {

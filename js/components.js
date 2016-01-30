@@ -96,7 +96,7 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
 } </div> <ul> {choices} </ul> </div> ];
 }
 
-window.OurGame.dayReport = function(gameState, startNextDayFn) {
+window.OurGame.dayReport = function(gameState, startNextDayFn, buyNurse, buyChocolates) {
   var day = gameState.dayNo;
   var choices = [];
   for (var i = 0; i <gameState.todaysPeople.length; i++) {
@@ -112,6 +112,15 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
   if (gameState.dayInProgress || gameState.gameOver) {
     nextBtn = null;
   }
+  var buyNursebtn = <div className="shop" onClick={buyNurse}>Buy a Hot Nurse<br/>Makes time go slower.<br/>$80</div>;
+  if (gameState.dayInProgress || gameState.gameOver || gameState.playerStats.money < 100 || gameState.nurse == 1) {
+    buyNursebtn = null;
+  }
+  var buyChocolatesbtn = <div className="shop" onClick={buyChocolates}>Buy chocolates for the waiting room<br/> patients get stress slower.<br/>$80</div>;
+  if (gameState.dayInProgress || gameState.gameOver || gameState.playerStats.money < 80 || gameState.chocolate == 1) {
+    buyChocolatesbtn = null;
+  }
+
   var gameover = null;
   if (gameState.gameOver) {
     gameover = <h1 className="gameover">Game Over</h1>;
@@ -128,6 +137,8 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
               {choices}
             </ul>
             {nextBtn}
+            {buyNursebtn}
+            {buyChocolatesbtn}
           </div></div>;
 
 }

@@ -75,7 +75,7 @@ window.OurGame.characters = [{
     gender: 'F',
     age: 19,
     description: '',
-    startStress: 0,
+    startStress: 5,
     maxStress: 15,
     avatarPosition: 2,
     conversation: window.OurGame.conversations[0]
