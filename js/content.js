@@ -15,7 +15,7 @@ window.OurGame.characters = [{
     startStress: 17,
     maxStress: 40,
     avatarPosition: 4,
-    conversation: window.OurGame.conversations[1]
+    conversation: window.OurGame.conversations[2]
 }, {
     name: 'Gaston Lyles',
     gender: 'M',
