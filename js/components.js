@@ -1,52 +1,38 @@
-window.OurGame.room = function(gamestate, people, dialog, pickPerson, report, profile = () => []) {
-    var Rooms = [];
-    for (var i = 0; i < people.length; i++) {
-        var p = people[i];
-        var shaker = '';
-        if (p.stress / p.maxStress > 0.8) {
-            shaker = 'shake-little shake-constant';
-            if (p.stress / p.maxStress > 0.8) {
-                shaker = 'shake shake-constant';
-            }
-        }
-        console.log(p.avatarPosition)
-        Rooms.push( < div className = {'beds ' + shaker}
-            key = {
-                i
-            }
-            onClick = {
-                pickPerson.bind(i, i)
-            } >
 
-            < div className = "progress vertical" >
-            < div className = "progress-bar progress-bar-info"
-            style = {
-                {
-                    'width': (p.stress / p.maxStress) * 100 + '%'
-                }
-            } >
-            < /div> < /div > < div > < /div> < button className = 'avatar'
-            style = {
-                {
-                    'backgroundPosition': '-' + (60 + ((p.avatarPosition - 1) * (48 + 16))) + "px " + '-52px'
-                }
-            } > < /button> < /div > );
+// var bx = 60, by = 52, w = 48, h = 148, gx=16, gy=52;
+// new PIXI.Rectangle(bx+i*(w+gx), by+j*(h+gy), w, h);
+
+window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = ()=>[]) {
+  var Rooms = [];
+  for (var i = 0; i < people.length; i++) {
+    var p = people[i];
+    var shaker = '';
+    if (gamestate.dayInProgress && p.stress/p.maxStress > 0.85) {
+      shaker = 'shake-little shake-constant';
+      if (p.stress/p.maxStress > 0.95) {
+        shaker = 'shake shake-constant';
+      }
     }
-    return <div id = "room" > {
-        profile
-    } < div className = 'patients' > {
-        Rooms
-    } < /div> {
-    dialog
-} {
-    report
-} < div className = "timer" > {
-    gamestate.timeToString(gamestate.time)
-} < /div> < /div > ;
+    Rooms.push(<div className={'beds '+shaker} key={i} onClick={pickPerson.bind(i,i)}>
 
-};
-
-
+    <div className="progress vertical">
+      <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
+      </div>
+    </div>
+    <div ></div>
+        <button className='avatar' style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
+      </div>);
+  }
+  return <div id="room">
+    <div  className='patients' >
+    {Rooms}
+    </div>
+    {dialog}
+    {report}
+    <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
+    <div className="messageBox"></div>
+    </div>;
+  };
 
 window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
 var choices = [];
@@ -103,5 +89,6 @@ window.OurGame.dayReport = function(gameState, popupclose) {
             <ul>
               {choices}
             </ul>
+            <button className="nextdayBtn"></button>
           </div>;
 }

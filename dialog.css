@@ -1,15 +1,16 @@
 
 .dialog {
-    border-radius: 6px;
-    background-color: rgba(188, 204, 51, 0.72);
-    width: 97%;
-    position: absolute;
-    bottom: initial;
-    left: 20%;
-    margin-left: -153px;
-    /* min-height: 200px; */
-    padding: 5px;
-    top:70%;
+  width: 97%;
+  position: absolute;
+  bottom: initial;
+  left: 20%;
+  margin-left: -153px;
+  padding: 5px;
+  top:70%;
+
+  border-radius: 2px;
+  background-color: rgba(188, 204, 51, 0.72);
+  min-height: 200px;
 }
 
 .dialog > ul {

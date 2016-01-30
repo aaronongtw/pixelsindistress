@@ -11,26 +11,28 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 120;
+var maxTimeTicks = 100;
 
 var gamestate = {
     dayNo: 0,
     time: 0,
+    dayInProgress: false,
     people: randomCharList(),
     activePerson: null,
     showReport: false,
 };
 
 var startNewDay = function() {
-    gamestate.dayNo++;
-    gamestate.time = 0;
-    gamestate.people = randomCharList();
-    gamestate.activePerson = null;
-    gamestate.showReport = false;
+  gamestate.dayNo++;
+  gamestate.time = 0;
+  gamestate.dayInProgress = true;
+  gamestate.people = randomCharList();
+  gamestate.activePerson = null;
+  gamestate.showReport = false;
 
-    for (var i = 0; i < gamestate.people.length; i++) {
+  for (var i = 0; i < gamestate.people.length; i++) {
         if (gamestate.people[i].state) {
-            continue;
+          continue;
         }
         gamestate.people[i].state = "start";
         gamestate.people[i].stress = gamestate.people[i].startStress;
@@ -38,6 +40,9 @@ var startNewDay = function() {
 };
 
 var pickPerson = function(index) {
+    if (!gamestate.dayInProgress) {
+        return;
+    }
     var audio = document.getElementById("audio")
     audio.play()
     gamestate.activePerson = gamestate.people[index];
@@ -46,6 +51,9 @@ var pickPerson = function(index) {
 };
 
 var personStepCallback = function(person, choice) {
+  if (!gamestate.dayInProgress) {
+    return;
+  }
 
     if (choice.farewell) {
         var idx = gamestate.people.indexOf(gamestate.activePerson);
@@ -117,6 +125,9 @@ gamestate.timeToString = function(time) {
 }
 
 window.setInterval(function() {
+    if (!gamestate.dayInProgress) {
+        return;
+    }
     gamestate.time++;
     for (var i = 0; i < gamestate.people.length; i++) {
         gamestate.people[i].stress += 1;
@@ -130,3 +141,9 @@ var startGame = function() {
 };
 
 startGame();
+
+var dayOver = function() {
+  gamestate.dayInProgress = false;
+  gamestate.showReport = true;
+  gamestate.activePerson = null;
+};
