@@ -29,6 +29,8 @@ window.OurGame.conversations = [{
         deltaStress: -30,
         text: "I feel much better. Thanks Doc",
         winner: true,
+        good: true,
+        morale: -2,
     },
 
     friendship: {
@@ -59,6 +61,8 @@ window.OurGame.conversations = [{
         deltaStress: -20,
         text: "Thanks, I always knew he's a clown, but it's great to know your professional opinion on his mental illness.",
         winner: true,
+        good: true,
+        morale: 1,
     }
 }, {
     start: {

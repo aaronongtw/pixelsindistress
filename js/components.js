@@ -25,7 +25,7 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
   }
   var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;
   return <div id="room">
-      <div id="stats">{gamestate.playerStats.money} {gamestate.playerStats.morale} {gamestate.playerStats.health}</div>
+      <div className="statsBox" id="stats">Money:${gamestate.playerStats.money}   Morale:{gamestate.playerStats.morale}</div>
       <div  className='patients' >
       {Rooms}
       </div>
