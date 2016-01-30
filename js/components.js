@@ -5,8 +5,14 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
-    console.log(p.avatarPosition)
-    Rooms.push(<div className='beds' key={i} onClick={pickPerson.bind(i,i)}>
+    var shaker = '';
+    if (p.stress/p.maxStress > 0.8) {
+      shaker = 'shake-little shake-constant';
+      if (p.stress/p.maxStress > 0.8) {
+        shaker = 'shake shake-constant';
+      }
+    }
+    Rooms.push(<div className={'beds '+shaker} key={i} onClick={pickPerson.bind(i,i)}>
 
     <div className="progress vertical">
       <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>

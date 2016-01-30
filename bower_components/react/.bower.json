@@ -1,13 +1,10 @@
 {
   "name": "react",
-<<<<<<< HEAD
   "main": [
     "react.js",
     "react-dom.js"
   ],
   "ignore": [],
-=======
->>>>>>> 1a772d0d4d0f1fbbb58f88a598a78213fd9deb0a
   "homepage": "https://github.com/facebook/react-bower",
   "version": "0.14.7",
   "_release": "0.14.7",
