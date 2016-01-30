@@ -23,24 +23,26 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
         <button className='avatar' style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
+  var startScreen = gamestate.dayNo == 0 ? getStartScreen() : null;
   return <div id="room">
-    <div  className='patients' >
-    {Rooms}
-    </div>
-    {dialog}
-    {report}
-    <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
-    <div className="messageBox"></div>
+      <div  className='patients' >
+      {Rooms}
+      </div>
+      {dialog}
+      {report}
+      <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
+      <div className="messageBox"></div>
+      {startScreen}
     </div>;
   };
 
 window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
-var choices = [];
+  var choices = [];
 
-var state = person.conversation[person.state];
-state.options = state.options || [];
+  var state = person.conversation[person.state];
+  state.options = state.options || [];
 
-for (var i = 0; i < state.options.length; i++) {
+  for (var i = 0; i < state.options.length; i++) {
     choices.push( < li onClick = {
             personStepCallback.bind(this, person, state.options[i])
         } > {
@@ -96,3 +98,12 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
             {nextBtn}
           </div>;
 }
+
+var getStartScreen = function() {
+  return <div className="startScreen">
+      <h1>Pixels in Distress</h1>
+      <h2>Virtual Clinic for Mental Health</h2>
+      <h2>Brought to you by people who spent too long in a real one.</h2>
+      <div className="startBtn">Xuy</div>
+    </div>;
+};

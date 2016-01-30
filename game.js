@@ -142,7 +142,6 @@ window.setInterval(function() {
 }, 1000);
 
 var startGame = function() {
-    startNewDay();
     renderScreen();
 };
 

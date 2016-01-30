@@ -55,3 +55,32 @@
 .close-thik:after {
   content: '✖'; /* UTF-8 symbol */
 }
+
+.startScreen {
+  background-color: rgba(220, 220, 220, 0.85);
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 760px;
+  height: 560px;
+}
+
+.startScreen h1 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.startScreen h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.startScreen .startBtn {
+  position: absolute;
+  bottom: 60px;
+  color: rgba(33, 125, 46, 1);
+  width: 80px;
+  left: 50%;
+  margin-left: -40px;
+}
