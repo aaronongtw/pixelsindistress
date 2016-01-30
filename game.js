@@ -56,6 +56,7 @@ var characters = [{
     avatarPosition: 12
 }]
 
+<<<<<<< HEAD
 var newDay = {
   indexList : randomCharList()
 }
@@ -109,6 +110,7 @@ var renderScreen = function() {
         window.OurGame.room(gamestate.time, gamestate.people, dialog),
         document.getElementById('maindiv')
     );
+
 };
 
 var Person = function(name, gender, age, stress) {
@@ -120,8 +122,10 @@ var startGame = function() {
     renderScreen();
 };
 
-var pickPerson = function() {
-
+var pickPerson = function(index) {
+  console.log(arguments);
+  gamestate.activePerson = index;
+  renderScreen();
 };
 
 startGame();
