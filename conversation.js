@@ -115,6 +115,8 @@ window.OurGame.conversations = [{
         deltaStress: -20,
         text: "Thanks, I always knew he always just needed to chill and have a drink.",
         winner: true,
+        good: true,
+        morale: 1,
     }
 }, {
     start: {
@@ -134,7 +136,9 @@ window.OurGame.conversations = [{
     drughim: {
         deltaStress: -15,
         text: "Thanks Doc, I might be back",
-        winner: true
+        winner: true,
+        good: true,
+        morale: -2,
     },
 
     explain: {
@@ -176,14 +180,16 @@ window.OurGame.conversations = [{
         deltaStress: -50,
         text: "Thanks, this is amazing",
         winner: true,
-
+        good: true,
+        morale: 1,
     },
 
     boom: {
         deltaStress: +50,
         text: "I FUCKING HATE YOU. I'll KILL YOU! I'LL KILL YOU!",
         winner: true,
-
+        good: false,
+        morale: -2,
     }
 }, {
     start: {
@@ -215,7 +221,9 @@ window.OurGame.conversations = [{
     screw: {
         deltaStress: +5,
         text: "Screw you.",
-        winner: true
+        winner: true,
+        good: false,
+        morale: -2,
     },
 
     friendship: {
@@ -256,6 +264,8 @@ window.OurGame.conversations = [{
     win: {
         deltaStress: -20,
         text: "I know right.",
-        winner: true
+        winner: true,
+        good: true,
+        morale: 1,
     }
 }];
