@@ -1,14 +1,15 @@
 
 .report {
   border-radius: 6px;
-background-color: rgba(188, 204, 51, 0.72);
-width: 300px;
-position: absolute;
-bottom: 0px;
-left: 46%;
-margin-left: -150px;
-min-height: 189px;
-padding: 20px;
+  background-color: rgba(188, 204, 51, 0.72);
+  width: 400px;
+  position: absolute;
+  /* bottom: 0px; */
+  left: 44%;
+  margin-top: 15px;
+  margin-left: -150px;
+  /* min-height: 176px; */
+  /* padding: 20px; */
 }
 
 .report > ul {
