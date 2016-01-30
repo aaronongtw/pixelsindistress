@@ -1,6 +1,3 @@
-
-
-
 var randomCharList = function() {
     var CharIndexList = []
     var CharList = []
