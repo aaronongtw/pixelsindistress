@@ -40,6 +40,7 @@ body {
   cursor: pointer;
 }
 .statsBox{
+  border-radius: 20px;
   float: right;
   background-color: aliceblue;
   width: 265px;
@@ -58,6 +59,7 @@ body {
 }
 
 .timer {
+  border-radius: 8px;
   background: bisque;
   position: absolute;
     right: 40px;
