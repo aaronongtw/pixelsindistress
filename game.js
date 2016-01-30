@@ -92,7 +92,7 @@ var renderScreen = function() {
         var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose)
     }
     if (!gamestate.activePerson && gamestate.showReport) {
-        var dialog = window.OurGame.dayReport(gamestate, popupclose)
+        var dialog = window.OurGame.dayReport(gamestate, startNewDay);
     }
 
     ReactDOM.render(
@@ -135,7 +135,7 @@ window.setInterval(function() {
     for (var i = 0; i < gamestate.people.length; i++) {
         gamestate.people[i].stress += 1;
     }
-    if (gamestate.time > maxTimeTicks) {
+    if (gamestate.time >= maxTimeTicks) {
       dayOver();
     }
     renderScreen();
