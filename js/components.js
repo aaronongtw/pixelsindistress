@@ -1,6 +1,6 @@
 window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = ()=>[]) {
   var Rooms = [];
-  for (var i = 0; i < people.length; i++) {
+  for (var i = 0; i <people.length; i++) {
     var p = people[i];
     var shaker = '';
     if (gamestate.dayInProgress && p.stress/p.maxStress > 0.85) {
@@ -39,51 +39,51 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var state = person.conversation[person.state];
   state.options = state.options || [];
 
-  for (var i = 0; i < state.options.length; i++) {
-    choices.push( < li onClick = {
+  for (var i = 0; i <state.options.length; i++) {
+    choices.push( <li onClick = {
             personStepCallback.bind(this, person, state.options[i])
         } > {
             state.options[i].text
-        } < /li>);
+        } </li>);
     }
 
-    return [ < div id = 'profilebox'
+    return [ <div id = 'profilebox'
         className = "profile" >
-        < p className = 'close-thik'
+        <p className = 'close-thik'
         onClick = {
             popupclose
-        } > < /p> < ul > < li > Name: {
+        } > </p> <ul > <li > Name: {
         person.name
-    } < /li><li>
+    } </li><li>
     Age: {
         person.age
-    } < /li><li>
+    } </li><li>
     Gender: {
         person.gender
-    } < /li><li>
+    } </li><li>
     Description: {
         person.description
-    } < /li> < /ul > < /div > ,
+    } </li> </ul> </div> ,
 
-    < div id = 'dialogbox'
+    <div id = 'dialogbox'
     className = "dialog" >
-        < p className = 'close-thik'
+        <p className = 'close-thik'
     onClick = {
         popupclose
-    } > < /p> < div > {
+    } > </p> <div > {
     state.text
-} < /div> < ul > {choices} < /ul> < /div > ];
+} </div> <ul > {choices} </ul> </div> ];
 }
 
 window.OurGame.dayReport = function(gameState, startNextDayFn) {
   var day = gameState.dayNo;
   var choices = [];
-  for (var i = 0; i < gameState.todaysPeople.length; i++) {
+  for (var i = 0; i <gameState.todaysPeople.length; i++) {
     var currentStress = gameState.todaysPeople[i].stress
     var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
 
     choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress:
-      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress < gameState.todaysPeople[i].maxStress ? "good":"bad"}>{currentStress < gameState.todaysPeople[i].maxStress ? "Alive": currentStress <= 0 ? "HAPPY!" : 'Dead'}</span> </li>);
+      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress <gameState.todaysPeople[i].maxStress ? "good":"bad"}>{currentStress <gameState.todaysPeople[i].maxStress ? "Alive": currentStress <= 0 ? "HAPPY!" : 'Dead'}</span> </li>);
 
   }
 
