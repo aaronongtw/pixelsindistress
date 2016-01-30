@@ -1,6 +1,12 @@
 // var bx = 60, by = 52, w = 48, h = 148, gx=16, gy=52;
 // new PIXI.Rectangle(bx+i*(w+gx), by+j*(h+gy), w, h);
 
+window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = ()=>[]) {
+  var Rooms = [];
+  for (var i = 0; i < people.length; i++) {
+    var p = people[i];
+    console.log(p.avatarPosition)
+    Rooms.push(<div className='beds' key={i} onClick={pickPerson.bind(i,i)}>
 
     <div className="progress vertical">
       <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
@@ -21,66 +27,37 @@
     </div>;
   };
 
-
-
 window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
-var choices = [];
+  var choices = [];
 
-var state = person.conversation[person.state];
-state.options = state.options || [];
+  var state = person.conversation[person.state];
+  state.options = state.options || [];
 
-for (var i = 0; i < state.options.length; i++) {
-    choices.push( < li onClick = {
-            personStepCallback.bind(this, person, state.options[i])
-        } > {
-            state.options[i].text
-        } < /li>);
-    }
+  for (var i = 0; i < state.options.length; i++) {
+    choices.push(<li onClick={personStepCallback.bind(this, person, state.options[i])}>{state.options[i].text}</li>);
+  }
 
-    return [ < div id = 'profilebox'
-        className = "profile" >
-        < p className = 'close-thik'
-        onClick = {
-            popupclose
-        } > < /p> < ul > < li > Name: {
-        person.name
-    } < /li><li>
-    Age: {
-        person.age
-    } < /li><li>
-    Gender: {
-        person.gender
-    } < /li> < /ul > < /div > ,
-
-    < div id = 'dialogbox'
-    className = "dialog" >
-        < p className = 'close-thik'
-    onClick = {
-        popupclose
-    } > < /p> < div > {
-    state.text
-} < /div> < ul > {
-choices
-} < /ul> < /div > ];
+  return <div id='dialogbox' className="dialog">
+              <p className='close-thik' onClick={popupclose} ></p>
+            <div>{state.text}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
 }
 
 window.OurGame.dayReport = function(gameState, popupclose) {
-    var day = gameState.DayNo;
-    var choices = [];
-    for (var i = 0; i < gameState.people.length; i++) {
-        choices.push( < li > {
-                gameState.people[i].name
-            } < /li>);
-        }
+  var day = gameState.DayNo;
+  var choices = [];
+  for (var i = 0; i < gameState.people.length; i++) {
+    choices.push(<li>{gameState.people[i].name}</li>);
+  }
 
-        return <div id = 'reportBox'
-        className = "report" >
-            < p className = 'close-thik'
-        onClick = {
-            popupclose
-        } > < /p> < div > Day {
-        day
-    } < /div> < ul > {
-    choices
-} < /ul> < /div > ;
+  return <div id='reportBox' className="report">
+            <p className='close-thik' onClick={popupclose} ></p>
+            <div>Day {day}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
 }
