@@ -88,13 +88,17 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
   }
 
   var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
-  if (gameState.dayInProgress) {
+  if (gameState.dayInProgress || gameState.gameOver) {
     nextBtn = null;
   }
-
+  var gameover = null;
+  if (gameState.gameOver) {
+    gameover = <h1 className="gameover">Game Over</h1>;
+  }
 
   return <div className="startScreen">
   <div id='reportBox' className="report">
+            {gameover}
             <div>Day {day} Report</div>
             <ul>
               <li>Net Profit : {gameState.playerStats.money - gameState.startdaymoney}</li>
