@@ -27,27 +27,33 @@ var gamestate = {
     people: [],
     activePerson: null,
     showReport: false,
+    startdaymoney : null,
     playerStats : {
     money: 50,
     morale: 9}
 };
 
 var startNewDay = function() {
+  gamestate.startdaymoney = gamestate.playerStats.money
+  gamestate.startdaymorale = gamestate.playerStats.morale
   gamestate.playerStats.morale++; 
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
   gamestate.people = randomCharList();
+  gamestate.todaysPeople = gamestate.people.slice();
   gamestate.activePerson = null;
   gamestate.showReport = false;
 
   for (var i = 0; i < gamestate.people.length; i++) {
-        if (gamestate.people[i].state) {
-          continue;
+        if (!gamestate.people[i].state) {
+            gamestate.people[i].state = "start";
+            gamestate.people[i].stress = gamestate.people[i].startStress;
+            gamestate.people[i].startOfDayStress = gamestate.people[i].stress
         }
-        gamestate.people[i].state = "start";
-        gamestate.people[i].stress = gamestate.people[i].startStress;
+        gamestate.people[i].startOfDayStress = gamestate.people[i].stress;
     }
+
 };
 
 gamestate.startNewDay = startNewDay;

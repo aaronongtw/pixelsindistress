@@ -28,6 +28,13 @@ body {
 
 }
 
+.good {
+  color: green;
+}
+.bad {
+  color: red;
+}
+
 .patients {
   display: -webkit-inline-box;
   padding-top: 249px;

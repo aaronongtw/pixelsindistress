@@ -82,8 +82,10 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
 window.OurGame.dayReport = function(gameState, startNextDayFn) {
   var day = gameState.DayNo;
   var choices = [];
-  for (var i = 0; i < gameState.people.length; i++) {
-    choices.push(<li key={i}>{gameState.people[i].name}</li>);
+  for (var i = 0; i < gameState.todaysPeople.length; i++) {
+    var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
+    choices.push(<li key={i}>{gameState.todaysPeople[i].name}, Change in Stress: 
+      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span></li>);
   }
 
   var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
@@ -94,6 +96,8 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
   return <div id='reportBox' className="report">
             <div>Day {day}</div>
             <ul>
+              <li>Net Profit : {gameState.playerStats.money - gameState.startdaymoney}</li>
+              <li>Change in Morality : {gameState.playerStats.morale - gameState.startdaymorale}</li>
               {choices}
             </ul>
             {nextBtn}
