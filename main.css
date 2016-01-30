@@ -52,6 +52,8 @@ body {
   position: absolute;
   right: 40px;
   top: 50px;
+  width: 110px;
+  text-align: right;
   font-family: 'Press Start 2P', cursive;
   border: 4px solid #333;
   padding: 8px;

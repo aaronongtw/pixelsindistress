@@ -89,6 +89,6 @@ window.OurGame.dayReport = function(gameState, popupclose) {
             <ul>
               {choices}
             </ul>
-            <button className="nextdayBtn"></button>
+            <div className="nextdayBtn">continue to next day</div>
           </div>;
 }

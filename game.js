@@ -11,7 +11,7 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 100;
+var maxTimeTicks = 15;
 
 var gamestate = {
     dayNo: 0,
@@ -124,7 +124,7 @@ gamestate.timeToString = function(time) {
         minutes = "" + minutes;
     }
 
-    return "" + hours + ":" + minutes + " " + ampm;
+    return "" + hours + ":" + minutes + "" + ampm;
 }
 
 window.setInterval(function() {
@@ -134,6 +134,9 @@ window.setInterval(function() {
     gamestate.time++;
     for (var i = 0; i < gamestate.people.length; i++) {
         gamestate.people[i].stress += 1;
+    }
+    if (gamestate.time > maxTimeTicks) {
+      dayOver();
     }
     renderScreen();
 }, 1000);
