@@ -76,19 +76,23 @@ for (var i = 0; i < state.options.length; i++) {
 } < /div> < ul > {choices} < /ul> < /div > ];
 }
 
-window.OurGame.dayReport = function(gameState, popupclose) {
+window.OurGame.dayReport = function(gameState, startNextDayFn) {
   var day = gameState.DayNo;
   var choices = [];
   for (var i = 0; i < gameState.people.length; i++) {
-    choices.push(<li>{gameState.people[i].name}</li>);
+    choices.push(<li key={i}>{gameState.people[i].name}</li>);
+  }
+
+  var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
+  if (gameState.dayInProgress) {
+    nextBtn = null;
   }
 
   return <div id='reportBox' className="report">
-            <p className='close-thik' onClick={popupclose} ></p>
             <div>Day {day}</div>
             <ul>
               {choices}
             </ul>
-            <div className="nextdayBtn">continue to next day</div>
+            {nextBtn}
           </div>;
 }
