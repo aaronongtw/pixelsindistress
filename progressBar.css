@@ -10,10 +10,10 @@
   height: 40px;
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
-}
-.vertical {
+  margin-left: 10px;
   box-shadow: inset 0px 4px 6px #ccc;
 }
+
 .progress-bar {
   float: left;
       width: 0;
@@ -23,7 +23,7 @@
       color: #fff;
       text-align: center;
       box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
-
+      margin-left: 10px;
 }
 
 .progress {
