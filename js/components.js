@@ -8,7 +8,12 @@ window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]
     var p = people[i];
     console.log(p.avatarPosition)
     Rooms.push(<div className='beds' onClick={pickPerson.bind(i,i)}>
-        <div className='tempBar'>{p.stress} / {p.maxStress}</div>
+
+    <div className="progress vertical">
+      <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
+      </div>
+    </div>
+    <div ></div>
         <button className='avatar' style={{'background-position': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }

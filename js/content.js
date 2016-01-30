@@ -1,5 +1,3 @@
-window.OurGame = window.OurGame || {}
-
 window.OurGame.characters = [{
     name: 'Paul Korzhyk',
     gender: 'M',
@@ -145,3 +143,33 @@ window.OurGame.characters = [{
 // 'Johnie Clendenin',
 // 'Hiram Speed',
 // 'Luke Wolf'
+
+var check_story = function(story, stateName, checked = {}) {
+  if (checked[stateName]) {
+    return true;
+  }
+  checked[stateName] = true;
+
+  var state = story[stateName];
+  if (!state) {
+    console.log('ERROR! Unknown state ', stateName, ' for story ', story);
+  }
+  if (state.winner) {
+    checked[stateName] = true;
+    return true;
+  }
+
+  for (var i = 0; i < state.options.length; i++) {
+    var opt = state.options[i];
+    if (!story[opt.next]) {
+      console.log('ERROR! Story ', story, ' has no state ', opt.next, ' for ', opt);
+    } else {
+      check_story(story, opt.next, checked);
+    }
+  }
+};
+
+for (var i = 0; i < window.OurGame.characters.length; i++) {
+  var story = window.OurGame.characters[i].conversation;
+  check_story(story, "start", {});
+}
