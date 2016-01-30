@@ -20,9 +20,15 @@ var gamestate = {
     people: randomCharList(),
     activePerson: null,
     showReport: false,
+    playerStats : {
+    money: 50,
+    morale: 4,
+    health: 9}
 };
 
 var startNewDay = function() {
+  gamestate.playerStats.morale++;
+  gamestate.playerStats.health++; 
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
@@ -73,9 +79,19 @@ var personStepCallback = function(person, choice) {
 
     if (nextStep.winner) {
         nextStep.options = [{
-            text: "Glad I could help. Have a nice weekend",
+            text: "Glad I could help. Have a nice day.",
             farewell: true
-        }];
+        }]
+        if (nextStep.morale) {
+            gamestate.playerStats.morale += nextStep.morale
+        }
+        if (nextStep.good == true) {
+            gamestate.playerStats.money += 10
+        }
+        else {
+            gamestate.playerStats.money -= 10
+        }
+        ;
     }
 
     renderScreen();
@@ -100,6 +116,8 @@ var renderScreen = function() {
         document.getElementById('maindiv')
     );
 };
+
+
 
 
 gamestate.timeToString = function(time) {
