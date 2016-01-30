@@ -23,7 +23,7 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
         <button className='avatar' style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
-  var startScreen = gamestate.dayNo == 0 ? getStartScreen() : null;
+  var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;
   return <div id="room">
       <div id="stats">{gamestate.playerStats.money} {gamestate.playerStats.morale} {gamestate.playerStats.health}</div>
       <div  className='patients' >
@@ -100,11 +100,11 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
           </div>;
 }
 
-var getStartScreen = function() {
+var getStartScreen = function(gamestate) {
   return <div className="startScreen">
       <h1>Pixels in Distress</h1>
       <h2>Virtual Clinic for Mental Health</h2>
       <h2>Brought to you by people who spent too long in a real one.</h2>
-      <div className="startBtn">Xuy</div>
+      <div className="startBtn" onClick={gamestate.startNewDay}>Begin</div>
     </div>;
 };

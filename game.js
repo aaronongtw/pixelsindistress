@@ -28,7 +28,7 @@ var gamestate = {
 
 var startNewDay = function() {
   gamestate.playerStats.morale++;
-  gamestate.playerStats.health++; 
+  gamestate.playerStats.health++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
@@ -44,6 +44,8 @@ var startNewDay = function() {
         gamestate.people[i].stress = gamestate.people[i].startStress;
     }
 };
+
+gamestate.startNewDay = startNewDay;
 
 var pickPerson = function(index) {
     if (!gamestate.dayInProgress) {
@@ -162,7 +164,6 @@ window.setInterval(function() {
 var startGame = function() {
     renderScreen();
 };
-
 startGame();
 
 var dayOver = function() {

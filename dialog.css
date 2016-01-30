@@ -60,7 +60,7 @@ min-height: 200px;
   position: absolute;
   left: 20px;
   top: 20px;
-  width: 760px;
+  width: 860px;
   height: 560px;
 }
 
@@ -79,7 +79,49 @@ min-height: 200px;
   position: absolute;
   bottom: 60px;
   color: rgba(33, 125, 46, 1);
-  width: 80px;
+  width: 120px;
   left: 50%;
   margin-left: -40px;
+  cursor: pointer;
+  font-size: 20px;
+
+  animation: myblink 4s infinite;
+}
+
+@keyframes myblink {
+  0% {
+    opacity: 1;
+  }
+  69% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  71% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+  73% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 1;
+  }
 }
