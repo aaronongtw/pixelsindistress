@@ -102,11 +102,11 @@ var gamestate = {
     people: [{
         name: "John"
     }, {
-        name: "John"
+        name: "Bob"
     }, {
-        name: "John"
+        name: "Rob"
     }, ],
-    activePerson: 0
+    activePerson: -1
 };
 
 var pickPerson = function(index) {
