@@ -12,7 +12,7 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 320;
+var maxTimeTicks = 120;
 
 var gamestate = {
     dayNo: 0,
@@ -118,7 +118,7 @@ gamestate.timeToString = function(time) {
 window.setInterval(function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
-    gamestate.people[i].stress+=0.03;
+    gamestate.people[i].stress+=1;
   }
   renderScreen();
 }, 1000);
