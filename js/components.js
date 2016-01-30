@@ -3,7 +3,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
-    Rooms.push(<div className='beds' onClick={pickPerson.bind(i,i)}>
+    Rooms.push(<div onClick={pickPerson.bind(i,i)}>
     <div className="progress vertical">
       <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
       </div>
