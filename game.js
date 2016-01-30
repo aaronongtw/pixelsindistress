@@ -59,6 +59,9 @@ var personStepCallback = function(person, choice) {
         var idx = gamestate.people.indexOf(gamestate.activePerson);
         gamestate.people.splice(idx, 1);
         gamestate.activePerson = null;
+        if (!gamestate.people.length) {
+          dayOver();
+        }
         renderScreen();
         return;
     }
