@@ -4,7 +4,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
     Rooms.push(<div className='beds' onClick={pickPerson.bind(i,i)}>
-        <div className='tempBar'>{p.stress}</div>
+        <div className='tempBar'>{p.stress} / {p.maxStress}</div>
         <button className='avatar' ></button>
       </div>);
   }
@@ -17,22 +17,18 @@ window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]
         </div>;
 };
 
-window.OurGame.makeDialog = function(person,popupclose) {
-  var prompt = "hello, Dr Aaron";
-  var opts = [
-    "How are you today, " + person.name + "?",
-    "How have you been?",
-    "What brought you to the clinic today?"
-  ];
-
+window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var choices = [];
-  for (var i = 0; i < opts.length; i++) {
-    choices.push(<li>{opts[i]}</li>);
+
+  var state = person.conversation[person.state];
+
+  for (var i = 0; i < state.options.length; i++) {
+    choices.push(<li onClick={personStepCallback.bind(this, person, state.options[i])}>{state.options[i].text}</li>);
   }
 
   return <div id='dialogbox' className="dialog">
             <div id='popupx' onClick={popupclose} >[X]</div>
-            <div>{prompt}</div>
+            <div>{state.text}</div>
             <ul>
               {choices}
             </ul>

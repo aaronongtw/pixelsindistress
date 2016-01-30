@@ -7,8 +7,7 @@ window.OurGame.characters = [{
     startStress: 12,
     maxStress: 35,
     avatarPosition: 1,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Coleman Coplan',
     gender: 'M',
@@ -16,8 +15,7 @@ window.OurGame.characters = [{
     startStress: 17,
     maxStress: 40,
     avatarPosition: 4,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Gaston Lyles',
     gender: 'M',
@@ -25,8 +23,7 @@ window.OurGame.characters = [{
     startStress: 17,
     maxStress: 50,
     avatarPosition: 5,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Harris Mulhall',
     gender: 'M',
@@ -34,8 +31,7 @@ window.OurGame.characters = [{
     startStress: 5,
     maxStress: 20,
     avatarPosition: 7,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'August Bartkowiak',
     gender: 'M',
@@ -43,8 +39,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 8,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Andy Colston',
     gender: 'M',
@@ -52,8 +47,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 10,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Huey Hanney',
     gender: 'M',
@@ -61,8 +55,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 11,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Omar Groom',
     gender: 'M',
@@ -70,8 +63,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 12,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Pricilla Nolte',
     gender: 'F',
@@ -79,8 +71,7 @@ window.OurGame.characters = [{
     startStress: 0,
     maxStress: 15,
     avatarPosition: 2,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Sherrill Deatherage',
     gender: 'F',
@@ -88,8 +79,7 @@ window.OurGame.characters = [{
     startStress: 80,
     maxStress: 100,
     avatarPosition: 3,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Amira Holtkamp',
     gender: 'F',
@@ -97,8 +87,7 @@ window.OurGame.characters = [{
     startStress: 40,
     maxStress: 60,
     avatarPosition: 6,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Daniella Littler',
     gender: 'F',
@@ -106,8 +95,7 @@ window.OurGame.characters = [{
     startStress: 20,
     maxStress: 40,
     avatarPosition: 9,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Carolee Peevy',
     gender: 'F',
@@ -115,8 +103,7 @@ window.OurGame.characters = [{
     startStress: 10,
     maxStress: 30,
     avatarPosition: 13,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }, {
     name: 'Althea Basso',
     gender: 'F',
@@ -124,8 +111,7 @@ window.OurGame.characters = [{
     startStress: 10,
     maxStress: 30,
     avatarPosition: 15,
-    storyState: 0,
-    endState: 0
+    conversation: window.OurGame.conversations[0]
 }]
 
 // Althea Basso
