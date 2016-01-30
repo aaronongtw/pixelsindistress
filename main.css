@@ -113,12 +113,13 @@ body {
   color: red;
 }
 .popupMessages div.green {
-  color: green;
+  color: #283;
 }
 
 .popupMessages div {
   animation: popupFrames linear 2s;
   animation-iteration-count: 1;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes popupFrames {
@@ -128,7 +129,7 @@ body {
     font-size: 12px;
   }
   20% {
-    opacity: 1;    
+    opacity: 1;
     font-size: 16px;
     transformation: scaleX(1.2), scaleY(1.2);
   }

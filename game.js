@@ -18,8 +18,10 @@ var randomCharList = function() {
     return CharList
 };
 
+
 var maxTimeTicks = 40;
 var stressTick = 1;
+
 
 var gamestate = {
     nurse: 0,
@@ -213,7 +215,7 @@ gamestate.newAlert = function(alert, colour) {
 
     window.setTimeout(function() {
         gamestate.messages.splice(gamestate.messages.indexOf(al), 1);
-        renderScreen();        
+        renderScreen();
     }, 2000);
 }
 
