@@ -10,13 +10,12 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       }
     }
     Rooms.push(<div className={'beds '+shaker} key={i} onClick={pickPerson.bind(i,i)}>
-
-    <div className="progress vertical">
-      <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
-      </div>
-    </div>
-    <div ></div>
-        <button className={p.stress>=p.maxStess ? 'explosion':'avatar'} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
+        <div className="progress vertical">
+          <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
+          </div>
+        </div>
+        <div></div>
+        <button className={(p.stress>=p.maxStress) ? 'explosion':'avatar'} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
   var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;

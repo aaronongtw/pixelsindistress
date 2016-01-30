@@ -18,7 +18,7 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 8;
+var maxTimeTicks = 80;
 
 var gamestate = {
     dayNo: 0,
@@ -119,10 +119,14 @@ var personLeave = function(person) {
 };
 
 var checkPersonLeave = function(person) {
-  if (person.stress > person.maxStress) {
-    personLeave(person);
-    gamestate.playerStats.morale--;
-    gamestate.playerStats.money-=10;
+  if (person.stress >= person.maxStress) {
+    if (!person.exploding) {
+      gamestate.playerStats.morale--;
+      gamestate.playerStats.money-=10;
+      person.exploding = true;
+    } else {
+      personLeave(person);
+    }
   }
   if (person.stress <= 0) {
     personLeave(person);
