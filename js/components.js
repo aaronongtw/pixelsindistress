@@ -80,10 +80,13 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
 }
 
 window.OurGame.dayReport = function(gameState, startNextDayFn) {
-  var day = gameState.DayNo;
+  var day = gameState.dayNo;
   var choices = [];
-  for (var i = 0; i < gameState.people.length; i++) {
-    choices.push(<li key={i}>{gameState.people[i].name}</li>);
+  for (var i = 0; i < gameState.todaysPeople.length; i++) {
+    var currentStress = gameState.todaysPeople[i].stress
+    var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
+    choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress: 
+      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress < gameState.todaysPeople[i].maxStress ? "good":"bad"}>{currentStress < gameState.todaysPeople[i].maxStress ? "Alive": currentStress <= 0 ? "HAPPY!" : 'Dead'}</span> </li>);
   }
 
   var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
@@ -91,17 +94,19 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
     nextBtn = null;
   }
 
-  return <div className="startScreen">
-      <div id='reportBox' className="report">
-        <div>Day {day}</div>
-        <ul>
-          {choices}
-        </ul>
-        {nextBtn}
-      </div>
-    </div>;
-}
 
+  return <div className="startScreen">
+  <div id='reportBox' className="report">
+            <div>Day {day} Report</div>
+            <ul>
+              <li>Net Profit : {gameState.playerStats.money - gameState.startdaymoney}</li>
+              <li>Change in Morality : {gameState.playerStats.morale - gameState.startdaymorale}</li>
+              {choices}
+            </ul>
+            {nextBtn}
+          </div></div>;
+
+}
 var getStartScreen = function(gamestate) {
   return <div className="startScreen">
       <h1>Pixels in Distress</h1>
@@ -110,3 +115,4 @@ var getStartScreen = function(gamestate) {
       <div className="startBtn" onClick={gamestate.startNewDay}>Begin</div>
     </div>;
 };
+
