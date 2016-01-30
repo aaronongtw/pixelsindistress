@@ -65,9 +65,9 @@ var pickPerson = function(index) {
 };
 
 var personStepCallback = function(person, choice) {
-  if (!gamestate.dayInProgress) {
-    return;
-  }
+    if (!gamestate.dayInProgress) {
+      return;
+    }
 
     if (choice.farewell) {
         var idx = gamestate.people.indexOf(gamestate.activePerson);
@@ -153,18 +153,22 @@ gamestate.timeToString = function(time) {
     return "" + hours + ":" + minutes + "" + ampm;
 }
 
+var timeProgress = function() {
+  gamestate.time++;
+  for (var i = 0; i < gamestate.people.length; i++) {
+      gamestate.people[i].stress += 1;
+  }
+  if (gamestate.time >= maxTimeTicks) {
+    dayOver();
+  }
+  renderScreen();
+};
+
 window.setInterval(function() {
     if (!gamestate.dayInProgress) {
         return;
     }
-    gamestate.time++;
-    for (var i = 0; i < gamestate.people.length; i++) {
-        gamestate.people[i].stress += 1;
-    }
-    if (gamestate.time >= maxTimeTicks) {
-      dayOver();
-    }
-    renderScreen();
+    timeProgress();
 }, 1000);
 
 var startGame = function() {
