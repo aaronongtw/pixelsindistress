@@ -1,24 +1,21 @@
 
-.dialog {
-  width: 97%;
-  position: absolute;
-  bottom: initial;
-  left: 20%;
-  margin-left: -153px;
-  padding: 5px;
-  top:70%;
-
-  border-radius: 2px;
+.profile {
+  border-radius: 6px;
   background-color: rgba(188, 204, 51, 0.72);
+  width: 300px;
+  position: absolute;
+  bottom: 190px; 
   left: 46%;
-  min-height: 200px;
+  margin-left: -550px;
+  min-height: 300px;
+  padding: 10px;
 }
 
-.dialog > ul {
+.profile > ul {
   padding: 0;
 }
 
-.dialog > ul > li {
+.profile > ul > li {
   list-style: none;
   cursor: pointer;
 

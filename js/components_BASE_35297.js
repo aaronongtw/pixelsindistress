@@ -5,14 +5,8 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
-    var shaker = '';
-    if (gamestate.dayInProgress && p.stress/p.maxStress > 0.85) {
-      shaker = 'shake-little shake-constant';
-      if (p.stress/p.maxStress > 0.95) {
-        shaker = 'shake shake-constant';
-      }
-    }
-    Rooms.push(<div className={'beds '+shaker} key={i} onClick={pickPerson.bind(i,i)}>
+    console.log(p.avatarPosition)
+    Rooms.push(<div className='beds' key={i} onClick={pickPerson.bind(i,i)}>
 
     <div className="progress vertical">
       <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
@@ -23,15 +17,14 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       </div>);
   }
   return <div id="room">
-    <div  className='patients' >
-    {Rooms}
-    </div>
-    {dialog}
-    {report}
-    <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
-    <div className="messageBox"></div>
-    </div>;
-  };
+          <div  className='patients' >
+            {Rooms}
+          </div>
+          {dialog}
+          {report}
+          <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
+        </div>;
+};
 
 window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var choices = [];
@@ -65,6 +58,5 @@ window.OurGame.dayReport = function(gameState, popupclose) {
             <ul>
               {choices}
             </ul>
-            <button className="nextdayBtn"></button>
           </div>;
 }

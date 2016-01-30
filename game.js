@@ -12,7 +12,7 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 10;
+var maxTimeTicks = 100;
 
 var gamestate = {
     dayNo: 0,
@@ -85,7 +85,7 @@ var popupclose =  function(){
 
 var renderScreen = function() {
     if (gamestate.activePerson) {
-        var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose);
+        var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose)
     }
     if (!gamestate.activePerson && gamestate.showReport) {
         var dialog = window.OurGame.dayReport(gamestate, popupclose)
