@@ -1,5 +1,5 @@
 window.OurGame = window.OurGame || {};
-window.OurGame.room = function(time, people, dialog, pickPerson) {
+window.OurGame.room = function(time, people, dialog, pickPerson = ()=>[]) {
   var Rooms = [];
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
