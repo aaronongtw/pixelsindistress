@@ -21,13 +21,14 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var choices = [];
 
   var state = person.conversation[person.state];
+  state.options = state.options || [];
 
   for (var i = 0; i < state.options.length; i++) {
     choices.push(<li onClick={personStepCallback.bind(this, person, state.options[i])}>{state.options[i].text}</li>);
   }
 
   return <div id='dialogbox' className="dialog">
-            <div id='popupx' onClick={popupclose} >[X]</div>
+            <div className='popupx' onClick={popupclose} >[X]</div>
             <div>{state.text}</div>
             <ul>
               {choices}

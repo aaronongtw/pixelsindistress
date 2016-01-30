@@ -35,13 +35,16 @@ body {
   padding-left:10px;
 }
 
-#popupx{
+.popupx {
   float:right;
+  cursor: pointer;
 }
+
 .tempBar
 {
-  background-color: #E80000;
-  height: 100px;
-  width: 20px;
+  //background-color: #E80000;
+  padding-top: 70px;
+  height: 30px;
+  width: 54px;
   margin: 10px;
 }
