@@ -12,7 +12,7 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 320;
+var maxTimeTicks = 180;
 
 var gamestate = {
     dayNo: 0,

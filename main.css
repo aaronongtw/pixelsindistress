@@ -9,8 +9,8 @@ body {
 #room {
   position: relative;
   background-image: url('background.png');
-  width: 600px;
-  height: 500px;
+  width: 800px;
+  height: 600px;
   margin: 5px auto;
   background-repeat: no-repeat;
   background-size: contain;
@@ -29,8 +29,8 @@ body {
 
 .patients {
   display: -webkit-box;
-  padding-top: 100px;
-  padding-left: 50px;
+  padding-top: 210px;
+  padding-left: 120px;
 }
 
 #popupx{
