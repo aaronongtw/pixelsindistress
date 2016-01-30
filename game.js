@@ -1,7 +1,13 @@
 var randomCharList = function() {
     var CharIndexList = []
     var CharList = []
-    for (var i = 0; CharIndexList.length < 5 && i<100; i++) {
+    var max;
+    if (gamestate.dayNo > 6) {
+        max = 7
+    } else {
+        max = (1 + gamestate.dayNo)
+    }
+    for (var i = 0; CharIndexList.length < max && i < 100; i++) {
         var indexValue = (Math.floor(Math.random() * window.OurGame.characters.length))
         var newChar = window.OurGame.characters[indexValue]
         if (CharIndexList.indexOf(indexValue) == -1 && (newChar.stress==undefined || newChar.stress < newChar.maxStress && newChar.stress > 0)) {
@@ -18,7 +24,7 @@ var gamestate = {
     dayNo: 0,
     time: 0,
     dayInProgress: false,
-    people: randomCharList(),
+    people: [],
     activePerson: null,
     showReport: false,
     playerStats : {
