@@ -5,7 +5,8 @@ var characters = [{
     startStress: 12,
     maxStress: 35,
     avatarPosition: 1,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Coleman Coplan',
     gender: 'M',
@@ -13,7 +14,8 @@ var characters = [{
     startStress: 17,
     maxStress: 40,
     avatarPosition: 4,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Gaston Lyles',
     gender: 'M',
@@ -21,7 +23,8 @@ var characters = [{
     startStress: 17,
     maxStress: 50,
     avatarPosition: 5,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Harris Mulhall',
     gender: 'M',
@@ -29,7 +32,8 @@ var characters = [{
     startStress: 5,
     maxStress: 20,
     avatarPosition: 7,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'August Bartkowiak',
     gender: 'M',
@@ -37,7 +41,8 @@ var characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 8,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Andy Colston',
     gender: 'M',
@@ -45,7 +50,8 @@ var characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 10,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Huey Hanney',
     gender: 'M',
@@ -53,7 +59,8 @@ var characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 11,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }, {
     name: 'Omar Groom',
     gender: 'M',
@@ -61,7 +68,8 @@ var characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 12,
-    storyState: 0
+    storyState: 0,
+    endState: 0
 }]
 
 var newDay = {
