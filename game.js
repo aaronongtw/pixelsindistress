@@ -36,7 +36,7 @@ var gamestate = {
 var startNewDay = function() {
   gamestate.startdaymoney = gamestate.playerStats.money
   gamestate.startdaymorale = gamestate.playerStats.morale
-  gamestate.playerStats.morale++; 
+  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
@@ -74,13 +74,7 @@ var personStepCallback = function(person, choice) {
     }
 
     if (choice.farewell) {
-        var idx = gamestate.people.indexOf(gamestate.activePerson);
-        gamestate.people.splice(idx, 1);
-        gamestate.activePerson = null;
-        if (!gamestate.people.length) {
-          dayOver();
-        }
-        renderScreen();
+        personLeave(gamestate.activePerson);
         return;
     }
 
@@ -103,8 +97,9 @@ var personStepCallback = function(person, choice) {
         else {
             gamestate.playerStats.money -= 10
         }
-        ;
     }
+
+    checkPersonLeave(person);
 
     renderScreen();
 };
@@ -114,6 +109,28 @@ var popupclose = function() {
     renderScreen();
 };
 
+var personLeave = function(person) {
+  var idx = gamestate.people.indexOf(person);
+  gamestate.people.splice(idx, 1);
+  gamestate.activePerson = null;
+  if (!gamestate.people.length) {
+    dayOver();
+  }
+  renderScreen();
+};
+
+var checkPersonLeave = function(person) {
+  if (person.stress > person.maxStress) {
+    personLeave(person);
+    gamestate.playerStats.morale--;
+    gamestate.playerStats.money-=10;
+  }
+  if (person.stress <= 0) {
+    personLeave(person);
+    gamestate.playerStats.morale++;
+    gamestate.playerStats.money+=10;
+  }
+};
 
 var renderScreen = function() {
     if (gamestate.activePerson) {
@@ -128,8 +145,6 @@ var renderScreen = function() {
         document.getElementById('maindiv')
     );
 };
-
-
 
 
 gamestate.timeToString = function(time) {
@@ -161,6 +176,7 @@ var timeProgress = function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
       gamestate.people[i].stress += 1;
+      checkPersonLeave(gamestate.people[i]);
   }
   if (gamestate.time >= maxTimeTicks) {
     dayOver();
@@ -184,4 +200,8 @@ var dayOver = function() {
   gamestate.dayInProgress = false;
   gamestate.showReport = true;
   gamestate.activePerson = null;
+
+  if (gamestate.playerStats.money < 0 || gamestate.playerStats.morality < 0) {
+    gamestate.gameover = true;
+  }
 };
