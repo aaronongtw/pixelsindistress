@@ -28,7 +28,12 @@ body {
 
 }
 .explosion{
-  background: url("explosion.png") no-repeat center center transparent;
+  background-position: 0px 0px !important;
+  border: 0px;
+  width: 150px;
+  background-size: contain;
+  height: 150px;
+  background: url("explosion.gif") no-repeat center center transparent;
 }
 .patients {
   display: -webkit-inline-box;
