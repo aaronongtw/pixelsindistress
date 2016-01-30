@@ -27,31 +27,27 @@ var gamestate = {
     people: [],
     activePerson: null,
     showReport: false,
-    startdaymoney : null,
     playerStats : {
     money: 50,
     morale: 9}
 };
 
 var startNewDay = function() {
-  gamestate.startdaymoney = gamestate.playerStats.money
-  gamestate.startdaymorale = gamestate.playerStats.morale
-  gamestate.playerStats.morale++; 
+  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
   gamestate.people = randomCharList();
-  gamestate.todaysPeople = gamestate.people.slice();
   gamestate.activePerson = null;
   gamestate.showReport = false;
+
   for (var i = 0; i < gamestate.people.length; i++) {
-        if (!gamestate.people[i].state) {
-            gamestate.people[i].state = "start";
-            gamestate.people[i].stress = gamestate.people[i].startStress;
-            gamestate.people[i].startOfDayStress = gamestate.people[i].stress
-        }
-        gamestate.people[i].startOfDayStress = gamestate.people[i].stress;
+    if (gamestate.people[i].state) {
+      continue;
     }
+    gamestate.people[i].state = "start";
+    gamestate.people[i].stress = gamestate.people[i].startStress;
+  }
   renderScreen();
 };
 
@@ -69,9 +65,9 @@ var pickPerson = function(index) {
 };
 
 var personStepCallback = function(person, choice) {
-  if (!gamestate.dayInProgress) {
-    return;
-  }
+    if (!gamestate.dayInProgress) {
+      return;
+    }
 
     if (choice.farewell) {
         var idx = gamestate.people.indexOf(gamestate.activePerson);
@@ -157,18 +153,22 @@ gamestate.timeToString = function(time) {
     return "" + hours + ":" + minutes + "" + ampm;
 }
 
+var timeProgress = function() {
+  gamestate.time++;
+  for (var i = 0; i < gamestate.people.length; i++) {
+      gamestate.people[i].stress += 1;
+  }
+  if (gamestate.time >= maxTimeTicks) {
+    dayOver();
+  }
+  renderScreen();
+};
+
 window.setInterval(function() {
     if (!gamestate.dayInProgress) {
         return;
     }
-    gamestate.time++;
-    for (var i = 0; i < gamestate.people.length; i++) {
-        gamestate.people[i].stress += 1;
-    }
-    if (gamestate.time >= maxTimeTicks) {
-      dayOver();
-    }
-    renderScreen();
+    timeProgress();
 }, 1000);
 
 var startGame = function() {
