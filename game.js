@@ -1,119 +1,23 @@
-var characters = [{
-    name: 'Harlan Shufelt',
-    gender: 'M',
-    age: 41,
-    startStress: 12,
-    maxStress: 35,
-    avatarPosition: 1,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Coleman Coplan',
-    gender: 'M',
-    age: 26,
-    startStress: 17,
-    maxStress: 40,
-    avatarPosition: 4,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Gaston Lyles',
-    gender: 'M',
-    age: 38,
-    startStress: 17,
-    maxStress: 50,
-    avatarPosition: 5,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Harris Mulhall',
-    gender: 'M',
-    age: 18,
-    startStress: 5,
-    maxStress: 20,
-    avatarPosition: 7,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'August Bartkowiak',
-    gender: 'M',
-    age: 23,
-    startStress: 35,
-    maxStress: 50,
-    avatarPosition: 8,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Andy Colston',
-    gender: 'M',
-    age: 35,
-    startStress: 35,
-    maxStress: 50,
-    avatarPosition: 10,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Huey Hanney',
-    gender: 'M',
-    age: 35,
-    startStress: 35,
-    maxStress: 50,
-    avatarPosition: 11,
-    storyState: 0,
-    endState: 0
-}, {
-    name: 'Omar Groom',
-    gender: 'M',
-    age: 35,
-    startStress: 35,
-    maxStress: 50,
-    avatarPosition: 12,
-    storyState: 0,
-    endState: 0
-}]
+
 
 
 var randomCharList = function() {
     var CharIndexList = []
+    var CharList = []
     for (var i = 0; CharIndexList.length < 5; i++) {
-        var indexValue = (Math.floor(Math.random() * 54) + 1)
+        var indexValue = (Math.floor(Math.random() * 13) + 1)
         if (CharIndexList.indexOf(indexValue) == -1) {
             CharIndexList.push(indexValue)
+            CharList.push(window.OurGame.characters[indexValue])
         }
     }
-    return CharIndexList
+    return CharList
 };
-
-var newDay = {
-  indexList : randomCharList()
-}
-
-var gender: ['M', 'F', 'F', 'M', 'M', 'F', 'M', 'M', 'F', 'M', 'M', 'M12', 'F', 'M', 'F', 'F', 'F', 'F', 'M', 'F', 'M', 'M', 'M', 'F', 'F', 'F', 'F', 'M', 'F', 'M', 'F', 'F', 'F', 'F', 'M', 'M', 'F', 'F', 'M', 'M', 'F', 'M', 'F', 'M', 'F', 'F', 'M', 'F', 'F', 'F', 'M', 'F', 'F', 'M']
-    // 'Tim Ardon',
-    // 'Harley Bilby',
-    // 'Olen Deitch',
-    // 'Otto Cuenca',
-    // 'Ignacio Bartol',
-    // 'Pierre Pantoja',
-    // 'Franklin Brecht',
-    // 'Sammie Gerson',
-    // 'Fermin Mcgarvey',
-    // 'Johnie Clendenin',
-    // 'Hiram Speed',
-    // 'Luke Wolf'
-
-
 
 
 var gamestate = {
     time: 320,
-    people: [{
-        name: "John"
-    }, {
-        name: "Bob"
-    }, {
-        name: "Rob"
-    }, ],
+    people: randomCharList(),
     activePerson: -1
 };
 
