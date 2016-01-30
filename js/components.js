@@ -16,7 +16,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson = ()=>[]) {
         </div>;
 };
 
-window.OurGame.makeDialog = function(person) {
+window.OurGame.makeDialog = function(person,popupclose) {
   var prompt = "hello, Dr Aaron";
   var opts = [
     "How are you today, " + person.name + "?",
@@ -29,10 +29,11 @@ window.OurGame.makeDialog = function(person) {
     choices.push(<li>{opts[i]}</li>);
   }
 
-  return <div className="dialog">
-      <div>{prompt}</div>
-      <ul>
-        {choices}
-      </ul>
-    </div>;
+  return <div id='dialogbox' className="dialog">
+            <div id='popupx' onClick={popupclose} >[X]</div>
+            <div>{prompt}</div>
+            <ul>
+              {choices}
+            </ul>
+          </div>;
 }

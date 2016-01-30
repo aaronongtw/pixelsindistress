@@ -122,10 +122,13 @@ var pickPerson = function(index) {
   gamestate.activePerson = index;
   renderScreen();
 };
-
+var popupclose =  function(){
+  gamestate.activePerson = -1;
+  renderScreen();
+};
 var renderScreen = function() {
     if (gamestate.activePerson >= 0 && gamestate.people.length) {
-        var dialog = window.OurGame.makeDialog(gamestate.people[gamestate.activePerson]);
+        var dialog = window.OurGame.makeDialog(gamestate.people[gamestate.activePerson],popupclose);
     }
     ReactDOM.render(
         window.OurGame.room(gamestate.time, gamestate.people, dialog, pickPerson),
