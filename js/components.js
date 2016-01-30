@@ -9,6 +9,18 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
         shaker = 'shake shake-constant';
       }
     }
+    var animationcss = 'avatar';
+    if (p.stress >= p.maxStress) {
+      if (!p.exploding) {
+        animationcss = 'avatar';
+      }
+      else {
+        animationcss = 'explosion';
+      }
+    }
+    if (p.stress <= 0){
+      animationcss='love';
+      }
     Rooms.push(<div className={'beds '+shaker} key={i} onClick={pickPerson.bind(i,i)}>
 
     <div className="progress vertical">
@@ -16,7 +28,7 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       </div>
     </div>
     <div></div>
-        <button className={p.stress>=p.maxStress ? 'explosion':'avatar'} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}}></button>
+        <button className={animationcss} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}}></button>
       </div>);
   }
   var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;

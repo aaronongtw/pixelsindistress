@@ -131,7 +131,7 @@ var checkPersonLeave = function(person) {
     }
   }
   if (person.stress <= 0) {
-    personLeave(person);
+    setTimeout(function() {personLeave(person);}, 2000);
     gamestate.playerStats.morale++;
     gamestate.playerStats.money+=10;
   }
@@ -180,7 +180,7 @@ gamestate.timeToString = function(time) {
 var timeProgress = function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
-      gamestate.people[i].stress += 1;
+      gamestate.people[i].stress -= 1;
       checkPersonLeave(gamestate.people[i]);
   }
   if (gamestate.time >= maxTimeTicks) {
