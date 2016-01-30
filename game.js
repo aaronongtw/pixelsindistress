@@ -33,7 +33,7 @@ var gamestate = {
 };
 
 var startNewDay = function() {
-  gamestate.playerStats.morale++; 
+  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;
@@ -42,12 +42,13 @@ var startNewDay = function() {
   gamestate.showReport = false;
 
   for (var i = 0; i < gamestate.people.length; i++) {
-        if (gamestate.people[i].state) {
-          continue;
-        }
-        gamestate.people[i].state = "start";
-        gamestate.people[i].stress = gamestate.people[i].startStress;
+    if (gamestate.people[i].state) {
+      continue;
     }
+    gamestate.people[i].state = "start";
+    gamestate.people[i].stress = gamestate.people[i].startStress;
+  }
+  renderScreen();
 };
 
 gamestate.startNewDay = startNewDay;
