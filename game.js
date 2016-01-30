@@ -8,7 +8,7 @@ var randomCharList = function() {
         var indexValue = (Math.floor(Math.random() * 13) + 1)
         if (CharIndexList.indexOf(indexValue) == -1) {
             CharIndexList.push(indexValue)
-            CharList.push(characters[indexValue])
+            CharList.push(window.OurGame.characters[indexValue])
         }
     }
     return CharList
