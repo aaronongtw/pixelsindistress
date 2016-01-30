@@ -180,7 +180,7 @@ gamestate.timeToString = function(time) {
 var timeProgress = function() {
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
-      gamestate.people[i].stress -= 1;
+      gamestate.people[i].stress += 1;
       checkPersonLeave(gamestate.people[i]);
   }
   if (gamestate.time >= maxTimeTicks) {
