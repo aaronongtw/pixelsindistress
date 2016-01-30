@@ -23,13 +23,13 @@ window.OurGame.characters = [{
     avatarPosition: 5,
     conversation: window.OurGame.conversations[1]
 }, {
-    name: 'Harris Mulhall',
+    name: 'Daniel Bakhsheshi',
     gender: 'M',
-    age: 18,
+    age: 34,
     startStress: 5,
     maxStress: 20,
     avatarPosition: 7,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[3]
 }, {
     name: 'August Bartkowiak',
     gender: 'M',
