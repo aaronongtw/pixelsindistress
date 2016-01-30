@@ -2,11 +2,11 @@
 .dialog {
   border-radius: 6px;
   background-color: rgba(188, 204, 51, 0.72);
-  width: 300px;
+  width: 600px;
   position: absolute;
   /* bottom: 0px; */
   left: 46%;
-  margin-left: -150px;
+  margin-left: -300px;
   min-height: 200px;
   padding: 10px;
 }

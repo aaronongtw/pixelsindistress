@@ -6,9 +6,9 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
   for (var i = 0; i < people.length; i++) {
     var p = people[i];
     var shaker = '';
-    if (p.stress/p.maxStress > 0.8) {
+    if (gamestate.dayInProgress && p.stress/p.maxStress > 0.85) {
       shaker = 'shake-little shake-constant';
-      if (p.stress/p.maxStress > 0.8) {
+      if (p.stress/p.maxStress > 0.95) {
         shaker = 'shake shake-constant';
       }
     }
@@ -64,5 +64,6 @@ window.OurGame.dayReport = function(gameState, popupclose) {
             <ul>
               {choices}
             </ul>
+            <button className="nextdayBtn"></button>
           </div>;
 }

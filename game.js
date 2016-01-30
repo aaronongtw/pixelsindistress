@@ -12,11 +12,12 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 120;
+var maxTimeTicks = 10;
 
 var gamestate = {
     dayNo: 0,
     time: 0,
+    dayInProgress: false,
     people: randomCharList(),
     activePerson: null,
     showReport: false,
@@ -25,6 +26,7 @@ var gamestate = {
 var startNewDay = function() {
   gamestate.dayNo ++;
   gamestate.time = 0;
+  gamestate.dayInProgress = true;
   gamestate.people = randomCharList();
   gamestate.activePerson = null;
   gamestate.showReport = false;
@@ -39,6 +41,9 @@ var startNewDay = function() {
 };
 
 var pickPerson = function(index) {
+  if (!gamestate.dayInProgress) {
+    return;
+  }
   gamestate.activePerson = gamestate.people[index];
   gamestate.showReport = false;
 
@@ -46,6 +51,9 @@ var pickPerson = function(index) {
 };
 
 var personStepCallback = function(person, choice) {
+  if (!gamestate.dayInProgress) {
+    return;
+  }
 
   if (choice.farewell) {
     var idx = gamestate.people.indexOf(gamestate.activePerson);
@@ -116,6 +124,9 @@ gamestate.timeToString = function(time) {
 }
 
 window.setInterval(function() {
+  if (!gamestate.dayInProgress) {
+    return;
+  }
   gamestate.time++;
   for (var i = 0; i < gamestate.people.length; i++) {
     gamestate.people[i].stress+=1;
@@ -136,5 +147,7 @@ var startGame = function() {
 startGame();
 
 var dayOver = function() {
-
+  gamestate.dayInProgress = false;
+  gamestate.showReport = true;
+  gamestate.activePerson = null;
 };
