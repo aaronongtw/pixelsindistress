@@ -196,7 +196,7 @@ gamestate.newAlert = function(alert, colour) {
 
     window.setTimeout(function() {
         gamestate.messages.splice(gamestate.messages.indexOf(al), 1);
-        renderScreen();        
+        renderScreen();
     }, 2000);
 }
 
