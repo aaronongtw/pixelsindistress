@@ -2,7 +2,7 @@ var randomCharList = function() {
     var CharIndexList = []
     var CharList = []
     for (var i = 0; CharIndexList.length < 5; i++) {
-        var indexValue = (Math.floor(Math.random() * 13) + 1)
+        var indexValue = (Math.floor(Math.random() * window.OurGame.characters.length))
         if (CharIndexList.indexOf(indexValue) == -1) {
             CharIndexList.push(indexValue)
             CharList.push(window.OurGame.characters[indexValue])
@@ -22,13 +22,11 @@ var gamestate = {
     showReport: false,
     playerStats : {
     money: 50,
-    morale: 4,
-    health: 9}
+    morale: 9}
 };
 
 var startNewDay = function() {
-  gamestate.playerStats.morale++;
-  gamestate.playerStats.health++;
+  gamestate.playerStats.morale++; 
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.dayInProgress = true;

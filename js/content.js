@@ -2,7 +2,7 @@ window.OurGame.characters = [{
     name: 'Paul Korzhyk',
     gender: 'M',
     age: 41,
-    description: 'Paul is a Ukrainian Robot raised in the Great Mounts of Javascriptuatu, he is extremely argumentative and likes to look at walls. His favourite colour is orange and he loves roses. Some say he turns into a werewolf at night.',
+    description: 'Paul is a Ukrainian Robot raised in the Great Mounts of Javascriptuatu, he is extremely argumentative and likes to look at walls. His favourite colour is orange and he loves roses. Some say he turns into a guinea pig at night.',
     startStress: 12,
     maxStress: 35,
     avatarPosition: 1,
