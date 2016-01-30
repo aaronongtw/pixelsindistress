@@ -77,7 +77,7 @@ var popupclose =  function(){
 
 var renderScreen = function() {
     if (gamestate.activePerson) {
-        var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose);
+        var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose)
     }
     if (!gamestate.activePerson && gamestate.showReport) {
         var dialog = window.OurGame.dayReport(gamestate, popupclose)

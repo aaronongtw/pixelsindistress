@@ -1,0 +1,49 @@
+
+.profile {
+  border-radius: 6px;
+  background-color: rgba(188, 204, 51, 0.72);
+  width: 300px;
+  position: absolute;
+  bottom: 190px; 
+  left: 46%;
+  margin-left: -550px;
+  min-height: 300px;
+  padding: 10px;
+}
+
+.profile > ul {
+  padding: 0;
+}
+
+.profile > ul > li {
+  list-style: none;
+  cursor: pointer;
+
+  background-color: #ffc;
+  padding: 4px;
+  margin: 5px 10px;
+}
+
+/* Close Button */
+
+[class*='close-'] {
+  color: #777;
+  font: 29px/100% arial, sans-serif;
+  position: absolute;
+  right: 5px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: -27px;
+}
+
+.close-classic:after {
+  content: 'X'; /* ANSI X letter */
+}
+
+.close-thin:after {
+  content: '×'; /* UTF-8 symbol */
+}
+
+.close-thik:after {
+  content: '✖'; /* UTF-8 symbol */
+}
