@@ -51,7 +51,8 @@ window.OurGame.conversations = [{
             next: "hesaclown"
         }, {
             text: "I think he's crazy, maybe punch him",
-            next: 'punchHim'        }, ],
+            next: 'punchHim'
+        }, ],
     },
 
     hesaclown: {
@@ -61,72 +62,59 @@ window.OurGame.conversations = [{
     }
 }, {
     start: {
-        text: "Hi, I need drugs. I have depression",
+        text: "Hi, I've been having to deal with my Ukrainian friend, he hates me, It's been giving me alot of psychological stress, he claims that I have an exaggerated self-esteem but he doesn't understand that my positivity is what keeps things moving",
         options: [{
-            text: "Okay.",
-            next: 'drughim'
+            text: "Have you tried kicking him in the balls?",
+            next: 'kickHim'
         }, {
-            text: "Why are you depressed, tell me more?",
-            next: "explain"
+            text: "Why do you think he hates you?",
+            next: "friendship"
         }, {
-            text: "No",
-            next: "declined"
+            text: "Do you think you treat him terribly?",
+            next: "challengeThought"
         }, ],
     },
 
-    drughim: {
-        deltaStress: -15,
-        text: "Thanks Doc, I might be back",
-        winner: true
-    },
-
-    explain: {
-        deltaStress: +10,
-        text: "Can't you just give me what I want?",
-        options: [{
-            text: "I need to understand your situation before I can give you drugs",
-            next: "explain2"
-        }, {
-            text: "Fine.",
-            next: "drughim"
-        }, ],
-    },
-
-    explain2: {
-        deltaStress: +15,
-        text: "WHY THE FUCK NOT!?",
-        options: [{
-            text: "It is against protocol",
-            next: "declined"
-        }, {
-            text: "Fine.",
-            next: "drughim"
-        }, ],
-    },
-    declined: {
+    kickHim: {
         deltaStress: +5,
-        text: "WHY NOT? I'M GOING TO KILL MYSELF",
+        text: "I did consider it a number of times, I don't know where he put his balls, he is always so worried and can't execute",
         options: [{
-            text: "Please don't! Have a lollipop",
-            next: "lollipop"
+            text: "Please understand that most people are like that. It's not his fault.",
+            next: "doPunchHim"
         }, {
-            text: "Well, I don't like you",
-            next: "boom"
+            text: "Oh I see, I could probably help you find his balls but lets start again.",
+            next: "start",
+        }, ]
+    },
+
+    friendship: {
+        deltaStress: -1,
+        text: "Well, he doesn't understand that I'm very stubborn because I like to get things finished without worrying about silly things",
+        options: [{
+            text: "Do you think you are too harsh?",
+            next: "harsh"
+        }, {
+            text: "Maybe he just wants you to listen to him.",
+            next: "challengeThought"
         }, ],
     },
 
-    lollipop: {
-        deltaStress: -50,
-        text: "Thanks, this is amazing",
-        winner: true,
-
+    challengeThought: {
+        deltaStress: -1,
+        text: "Well, I try to listen to him. However on top of the thick Ukrainian accent that he has, I think we are both equally as stubborn",
+        options: [{
+            text: "Do you suppose it could be a bad thing?",
+            next: "challengeThought2"
+        }, {
+            text: "Ah, that explains everything. Maybe a little vodka might fix his tension levels",
+            next: "vodka"
+        }, ],
     },
 
-    boom: {
-        deltaStress: +50,
-        text: "I FUCKING HATE YOU. I'll KILL YOU! I'LL KILL YOU!",
+    vodka: {
+        deltaStress: -20,
+        text: "Thanks, I always knew he always just needed to chill and have a drink.",
         winner: true,
-
     }
 }, {
     start: {
@@ -209,6 +197,18 @@ window.OurGame.conversations = [{
         }, {
             text: "Do you think you treat him terribly?",
             next: "challengeThought"
+        }, ],
+    },
+
+    challengeThought: {
+        deltaStress: -5,
+        text: "Sometimes. Although -- I'm a very nice guy all the time. No, I don't think I treat him terribly. I think I'm perfect.",
+        options: [{
+            text: "You don't look like a very nice guy",
+            next: 'screw'
+        }, {
+            text: "So why do you think Aaron is mean to you?",
+            next: "friendship"
         }, ],
     },
 
