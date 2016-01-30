@@ -13,7 +13,7 @@ window.OurGame.room = function(time, people, dialog, pickPerson, report = ()=>[]
       </div>
     </div>
     <div ></div>
-        <button className='avatar' style={{'background-position': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
+        <button className='avatar' style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
       </div>);
   }
   return <div id="room">
