@@ -2,7 +2,7 @@ var randomCharList = function() {
     var CharIndexList = []
     var CharList = []
     for (var i = 0; CharIndexList.length < 5; i++) {
-        var indexValue = (Math.floor(Math.random() * window.OurGame.characters.length)
+        var indexValue = (Math.floor(Math.random() * window.OurGame.characters.length))
         if (CharIndexList.indexOf(indexValue) == -1) {
             CharIndexList.push(indexValue)
             CharList.push(window.OurGame.characters[indexValue])
