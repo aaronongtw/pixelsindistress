@@ -2,8 +2,6 @@
 window.OurGame.conversations = [
   {
     start: {
-      initialStress: 20,
-      maxStress: 40,
       text: "Hi, I've been hating my frined Aaron lately, because he's incompetent in psychology, but highly exaggerated self-esteem",
       options: [
         {
