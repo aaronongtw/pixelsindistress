@@ -43,6 +43,8 @@ var startNewDay = function() {
     }
 };
 
+gamestate.startNewDay = startNewDay;
+
 var pickPerson = function(index) {
     if (!gamestate.dayInProgress) {
         return;
@@ -158,10 +160,8 @@ window.setInterval(function() {
 }, 1000);
 
 var startGame = function() {
-    startNewDay();
     renderScreen();
 };
-
 startGame();
 
 var dayOver = function() {
