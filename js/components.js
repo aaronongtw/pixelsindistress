@@ -3,9 +3,9 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
   for (var i = 0; i <people.length; i++) {
     var p = people[i];
     var shaker = '';
-    if (gamestate.dayInProgress && p.stress/p.maxStress > 0.85) {
+    if (gamestate.dayInProgress && p.stress/p.maxStress> 0.85) {
       shaker = 'shake-little shake-constant';
-      if (p.stress/p.maxStress > 0.95) {
+      if (p.stress/p.maxStress> 0.95) {
         shaker = 'shake shake-constant';
       }
     }
@@ -15,14 +15,14 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       <div className="progress-bar progress-bar-info"  style={{'width': (p.stress / p.maxStress) * 100 + '%'}}>
       </div>
     </div>
-    <div ></div>
-        <button className={p.stress>=p.maxStess ? 'explosion':'avatar'} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}} ></button>
+    <div></div>
+        <button className={p.stress>=p.maxStess ? 'explosion':'avatar'} style={{'backgroundPosition': '-' + (60+((p.avatarPosition-1)*(48+16))) + "px " + '-52px'}}></button>
       </div>);
   }
   var startScreen = gamestate.dayNo == 0 ? getStartScreen(gamestate) : null;
   return <div id="room">
       <div className="statsBox" id="stats">Day:{gamestate.dayNo} Money:${gamestate.playerStats.money}   Morale:{gamestate.playerStats.morale}</div>
-      <div  className='patients' >
+      <div  className='patients'>
       {Rooms}
       </div>
       {dialog}
@@ -42,17 +42,17 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   for (var i = 0; i <state.options.length; i++) {
     choices.push( <li onClick = {
             personStepCallback.bind(this, person, state.options[i])
-        } > {
+        }> {
             state.options[i].text
         } </li>);
     }
 
     return [ <div id = 'profilebox'
-        className = "profile" >
+        className = "profile">
         <p className = 'close-thik'
         onClick = {
             popupclose
-        } > </p> <ul > <li > Name: {
+        }> </p> <ul> <li> Name: {
         person.name
     } </li><li>
     Age: {
@@ -66,13 +66,13 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
     } </li> </ul> </div> ,
 
     <div id = 'dialogbox'
-    className = "dialog" >
+    className = "dialog">
         <p className = 'close-thik'
     onClick = {
         popupclose
-    } > </p> <div > {
+    }> </p> <div> {
     state.text
-} </div> <ul > {choices} </ul> </div> ];
+} </div> <ul> {choices} </ul> </div> ];
 }
 
 window.OurGame.dayReport = function(gameState, startNextDayFn) {
