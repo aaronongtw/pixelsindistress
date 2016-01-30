@@ -72,3 +72,10 @@ body {
     border: 8px solid #000;
     padding: 8px;
 }
+
+.good {
+  color:green;
+}
+.bad {
+  color:red;
+}
