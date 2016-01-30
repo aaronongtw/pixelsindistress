@@ -62,10 +62,12 @@ var personStepCallback = function(person, choice) {
 
   renderScreen();
 };
+
 var popupclose =  function(){
   gamestate.activePerson = null;
   renderScreen();
 };
+
 var renderScreen = function() {
     if (gamestate.activePerson) {
         var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback, popupclose);
