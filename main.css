@@ -10,8 +10,8 @@ body {
 #room {
   position: relative;
   background-image: url('background.png');
-  width: 800px;
-  height: 600px;
+  width: 900px;
+  height: 800px;
   margin: 5px auto;
   background-repeat: no-repeat;
   background-size: contain;
@@ -30,7 +30,7 @@ body {
 
 .patients {
   display: -webkit-box;
-  padding-top: 210px;
+  padding-top: 280px;
   padding-left: 120px;
 }
 
