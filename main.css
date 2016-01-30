@@ -39,7 +39,15 @@ body {
   float:right;
   cursor: pointer;
 }
-
+.statsBox{
+  float: right;
+  background-color: aliceblue;
+  width: 265px;
+  text-align: center;
+  height: 13px;
+  margin: 6px 7px;
+  padding: 7px;
+}
 .tempBar
 {
   //background-color: #E80000;

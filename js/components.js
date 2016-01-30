@@ -24,7 +24,7 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       </div>);
   }
   return <div id="room">
-    <div id="stats">Money: ${gamestate.playerStats.money}   Morale:{gamestate.playerStats.morale}</div>
+    <div className="statsBox" id="stats">Money:${gamestate.playerStats.money}   Morale:{gamestate.playerStats.morale}</div>
     <div  className='patients' >
     {Rooms}
     </div>
