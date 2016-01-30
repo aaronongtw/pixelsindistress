@@ -48,6 +48,14 @@ var pickPerson = function(index) {
 
 var personStepCallback = function(person, choice) {
 
+  if (choice.farewell) {
+    var idx = gamestate.people.indexOf(gamestate.activePerson);
+    gamestate.people.splice(idx, 1);
+    gamestate.activePerson = null;
+    renderScreen();
+    return;
+  }
+
   var nextStep = person.conversation[choice.next];
 
   person.stress += nextStep.deltaStress || 0;
@@ -55,9 +63,11 @@ var personStepCallback = function(person, choice) {
 
   if (nextStep.winner) {
     person.stress = 0;
-    var idx = gamestate.people.indexOf(gamestate.activePerson);
-    gamestate.people.splice(idx, 1);
-    gamestate.activePerson = null;
+
+    nextStep.options = [{
+      text: "Glad I could help. Have a nice weekend",
+      farewell: true
+    }];
   }
 
   renderScreen();
