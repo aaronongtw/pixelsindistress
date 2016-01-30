@@ -80,7 +80,7 @@ window.OurGame.conversations = [{
         text: "I did consider it a number of times, I don't know where he put his balls, he is always so worried and can't execute",
         options: [{
             text: "Please understand that most people are like that. It's not his fault.",
-            next: "doPunchHim"
+            next: "friendship"
         }, {
             text: "Oh I see, I could probably help you find his balls but lets start again.",
             next: "start",
@@ -92,7 +92,7 @@ window.OurGame.conversations = [{
         text: "Well, he doesn't understand that I'm very stubborn because I like to get things finished without worrying about silly things",
         options: [{
             text: "Do you think you are too harsh?",
-            next: "harsh"
+            next: "challengeThought"
         }, {
             text: "Maybe he just wants you to listen to him.",
             next: "challengeThought"
@@ -104,7 +104,7 @@ window.OurGame.conversations = [{
         text: "Well, I try to listen to him. However on top of the thick Ukrainian accent that he has, I think we are both equally as stubborn",
         options: [{
             text: "Do you suppose it could be a bad thing?",
-            next: "challengeThought2"
+            next: "friendship"
         }, {
             text: "Ah, that explains everything. Maybe a little vodka might fix his tension levels",
             next: "vodka"
