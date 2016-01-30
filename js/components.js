@@ -83,9 +83,10 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
   var day = gameState.dayNo;
   var choices = [];
   for (var i = 0; i < gameState.todaysPeople.length; i++) {
+    var currentStress = gameState.todaysPeople[i].stress
     var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
     choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress: 
-      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span></li>);
+      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress < gameState.todaysPeople[i].maxStress ? "good":"bad"}>{currentStress < gameState.todaysPeople[i].maxStress ? "Alive": currentStress <= 0 ? "HAPPY!" : 'Dead'}</span> </li>);
   }
 
   var nextBtn = <div className="nextdayBtn" onClick={startNextDayFn}>continue to next day</div>;
