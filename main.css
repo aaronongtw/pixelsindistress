@@ -12,8 +12,7 @@ body {
   position: relative;
   background-image: url('background.png');
   width: 900px;
-  height: 800px;
-  margin: 5px auto;
+  margin: 2px auto;
   background-repeat: no-repeat;
   background-size: contain;
 }
