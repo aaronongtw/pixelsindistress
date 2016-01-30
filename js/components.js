@@ -91,13 +91,15 @@ window.OurGame.dayReport = function(gameState, startNextDayFn) {
     nextBtn = null;
   }
 
-  return <div id='reportBox' className="report">
-            <div>Day {day}</div>
-            <ul>
-              {choices}
-            </ul>
-            {nextBtn}
-          </div>;
+  return <div className="startScreen">
+      <div id='reportBox' className="report">
+        <div>Day {day}</div>
+        <ul>
+          {choices}
+        </ul>
+        {nextBtn}
+      </div>
+    </div>;
 }
 
 var getStartScreen = function(gamestate) {
