@@ -36,7 +36,7 @@ window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   }
 
   return <div id='dialogbox' className="dialog">
-            <div className='popupx' onClick={popupclose} >[X]</div>
+              <p className='close-thik' onClick={popupclose} ></p>
             <div>{state.text}</div>
             <ul>
               {choices}
@@ -52,7 +52,7 @@ window.OurGame.dayReport = function(gameState, popupclose) {
   }
 
   return <div id='reportBox' className="report">
-            <div id='popupx' onClick={popupclose} >[X]</div>
+            <p className='close-thik' onClick={popupclose} ></p>
             <div>Day {day}</div>
             <ul>
               {choices}
