@@ -145,15 +145,15 @@ var characters = [{
 var gender: ['M', 'F', 'F', 'M', 'M', 'F', 'M', 'M', 'F', 'M', 'M', 'M', 'F', 'M', 'F15', 'F', 'F', 'F', 'M', 'F', 'M', 'M', 'M', 'F', 'F', 'F', 'F', 'M', 'F', 'M', 'F', 'F', 'F', 'F', 'M', 'M', 'F', 'F', 'M', 'M', 'F', 'M', 'F', 'M', 'F', 'F', 'M', 'F', 'F', 'F', 'M', 'F', 'F', 'M']
 
 
-    // 'Tim Ardon',
-    // 'Harley Bilby',
-    // 'Olen Deitch',
-    // 'Otto Cuenca',
-    // 'Ignacio Bartol',
-    // 'Pierre Pantoja',
-    // 'Franklin Brecht',
-    // 'Sammie Gerson',
-    // 'Fermin Mcgarvey',
-    // 'Johnie Clendenin',
-    // 'Hiram Speed',
-    // 'Luke Wolf'
+// 'Tim Ardon',
+// 'Harley Bilby',
+// 'Olen Deitch',
+// 'Otto Cuenca',
+// 'Ignacio Bartol',
+// 'Pierre Pantoja',
+// 'Franklin Brecht',
+// 'Sammie Gerson',
+// 'Fermin Mcgarvey',
+// 'Johnie Clendenin',
+// 'Hiram Speed',
+// 'Luke Wolf'

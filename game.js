@@ -3,34 +3,21 @@
 
 var randomCharList = function() {
     var CharIndexList = []
+    var CharList = []
     for (var i = 0; CharIndexList.length < 5; i++) {
-        var indexValue = (Math.floor(Math.random() * 54) + 1)
+        var indexValue = (Math.floor(Math.random() * 13) + 1)
         if (CharIndexList.indexOf(indexValue) == -1) {
             CharIndexList.push(indexValue)
+            CharList.push(characters[indexValue])
         }
     }
-    return CharIndexList
+    return CharList
 };
-
-var newDay = {
-  indexList : randomCharList()
-}
-
-var gender: ['M', 'F', 'F', 'M', 'M', 'F', 'M', 'M', 'F', 'M', 'M', 'M12', 'F', 'M', 'F', 'F', 'F', 'F', 'M', 'F', 'M', 'M', 'M', 'F', 'F', 'F', 'F', 'M', 'F', 'M', 'F', 'F', 'F', 'F', 'M', 'M', 'F', 'F', 'M', 'M', 'F', 'M', 'F', 'M', 'F', 'F', 'M', 'F', 'F', 'F', 'M', 'F', 'F', 'M']
-
-
-
 
 
 var gamestate = {
     time: 320,
-    people: [{
-        name: "John"
-    }, {
-        name: "Bob"
-    }, {
-        name: "Rob"
-    }, ],
+    people: randomCharList(),
     activePerson: -1
 };
 
