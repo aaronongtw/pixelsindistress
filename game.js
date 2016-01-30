@@ -73,6 +73,7 @@ var personStepCallback = function(person, choice) {
     }
 
     if (choice.farewell) {
+        gamestate.activePerson.state = choice.next;
         personLeave(gamestate.activePerson);
         return;
     }
@@ -83,10 +84,6 @@ var personStepCallback = function(person, choice) {
     person.state = choice.next;
 
     if (nextStep.winner) {
-        nextStep.options = [{
-            text: "Glad I could help. Have a nice day.",
-            farewell: true
-        }]
         if (nextStep.morale) {
             gamestate.playerStats.morale += nextStep.morale
         }
@@ -96,6 +93,7 @@ var personStepCallback = function(person, choice) {
         else {
             gamestate.playerStats.money -= 10
         }
+
     }
 
     checkPersonLeave(person);

@@ -8,19 +8,19 @@ window.OurGame.characters = [{
     avatarPosition: 1,
     conversation: window.OurGame.conversations[0]
 }, {
-    name: 'Aaron Coleman',
+    name: 'Gaston Coleman',
     gender: 'M',
-    age: 26,
-    description: 'Aaron Coleman, huge drug addict, reknown for going to every psychologist in town and asking for pills. Some say he has murdered a few doctors before he migrated here.',
+    age: 38,
+    description: 'Gaston, huge drug addict, reknown for going to every psychologist in town and asking for pills. Some say he has murdered a few doctors before he migrated here.',
     startStress: 17,
     maxStress: 40,
     avatarPosition: 4,
     conversation: window.OurGame.conversations[2]
 }, {
-    name: 'Gaston Lyles',
+    name: 'Aaron Ong',
     gender: 'M',
-    age: 38,
-    description: 'Gaston is a really difficult person. He loves cats, paper planes, and smelly socks.',
+    age: 26,
+    description: 'Aaron is a really difficult person. He loves cats, paper planes, and smelly socks.',
     startStress: 17,
     maxStress: 50,
     avatarPosition: 5,
@@ -39,10 +39,10 @@ window.OurGame.characters = [{
     gender: 'M',
     age: 23,
     description: '',
-    startStress: 35,
-    maxStress: 50,
+    startStress: 45,
+    maxStress: 80,
     avatarPosition: 8,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[4]
 }, {
     name: 'Andy Colston',
     gender: 'M',
@@ -51,7 +51,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 10,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[4]
 }, {
     name: 'Huey Hanney',
     gender: 'M',
@@ -60,7 +60,7 @@ window.OurGame.characters = [{
     startStress: 35,
     maxStress: 50,
     avatarPosition: 11,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[4]
 }, {
     name: 'Omar Groom',
     gender: 'M',

@@ -29,6 +29,9 @@ window.OurGame.conversations = [{
         deltaStress: -30,
         text: "I feel much better. Thanks Doc",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: -2,
     },
@@ -61,6 +64,9 @@ window.OurGame.conversations = [{
         deltaStress: -20,
         text: "Thanks, I always knew he's a clown, but it's great to know your professional opinion on his mental illness.",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: 1,
     }
@@ -119,6 +125,9 @@ window.OurGame.conversations = [{
         deltaStress: -20,
         text: "Thanks, I always knew he always just needed to chill and have a drink.",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: 1,
     }
@@ -141,6 +150,9 @@ window.OurGame.conversations = [{
         deltaStress: -15,
         text: "Thanks Doc, I might be back",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: -2,
     },
@@ -184,6 +196,9 @@ window.OurGame.conversations = [{
         deltaStress: -50,
         text: "Thanks, this is amazing",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: 1,
     },
@@ -192,6 +207,9 @@ window.OurGame.conversations = [{
         deltaStress: +50,
         text: "I FUCKING HATE YOU. I'll KILL YOU! I'LL KILL YOU!",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: false,
         morale: -2,
     }
@@ -226,6 +244,9 @@ window.OurGame.conversations = [{
         deltaStress: +5,
         text: "Screw you.",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: false,
         morale: -2,
     },
@@ -269,7 +290,119 @@ window.OurGame.conversations = [{
         deltaStress: -20,
         text: "I know right.",
         winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
         good: true,
         morale: 1,
     }
+}, {
+    start: {
+        text: "Doctor, I don't know what to do, everytime I look at myself in the mirror, I feel sad.",
+        options: [{
+            text: "I would feel sad too if I were you.",
+            next: 'screw'
+        }, {
+            text: "You know, sometimes I feel the same way too.",
+            next: "friendship"
+        }, {
+            text: "Do you feel inadequate?",
+            next: "challengeThought"
+        }, ],
+    },
+
+    challengeThought: {
+        deltaStress: -5,
+        text: "I just don't understand why the world hates me so much. What have I done to deserve this?",
+        options: [{
+            text: "I would understand why if I were you. Have you seen the mirror lately?",
+            next: 'screw'
+        }, {
+            text: "Often times we feel very small in this world. We think the world hates us but we fail to see the good things in life.",
+            next: "friendship"
+        }, ],
+    },
+
+    screw: {
+        deltaStress: +5,
+        text: "Why would you say such a thing!",
+        winner: true,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,}],
+        good: false,
+        morale: -2,
+    },
+
+    friendship: {
+        deltaStress: -5,
+        text: "What good things have I got in my life? I've never hurt anyone and done anything bad.",
+        options: [{
+            text: "Why do you feel that way?",
+            next: "inter"
+        }, {
+            text: "Come to think about it, not alot I guess.",
+            next: "screw"
+        }, ],
+    },
+    inter: {
+        deltaStress: -5,
+        text: "I feel that way because I feel all alone in this world. No one even knows I'm alive.",
+        options: [{
+            text: "That is not true August. I care, and I want to be there to help you.",
+            next: 'thanks'
+        }, {
+            text: "What was your name again?",
+            next: "screw"
+        }],
+    },
+
+    thanks: {
+        deltaStress: -1,
+        text: "Thank you Doctor, I'll definitely come back to get your help",
+        options: [{
+            text: "Please do.",
+            next: "win"
+        }, {
+            text: "Nah, You make me depressed.",
+            next: "screw"
+        }, ],
+    },
+
+    win: {
+        deltaStress: -20,
+        text: "Thank you.",
+        winner: true,
+        good: true,
+        morale: 1,
+        options: [{
+            text: "Glad I could help. Have a nice day.",
+            farewell: true,
+            next: 'nextVisit',
+        }]
+    },
+
+    nextVisit: {
+        deltaStress: -10,
+        text: "I'm back Doctor, thank you for seeing me. I'm glad I talked to you before, I've been feeling slightly better since then.",
+        options: [{
+          text: "Ofcourse. Lets talk.",
+          next: "talk",
+        }, {
+          text: "What are you doing here? I thought I told you not to come back!",
+          next: "angry",
+        }]
+    },
+
+    talk: {
+      deltaStress: -20,
+      text: "*talk talk talk talk*. I feel much better now. Thank you so much.",
+      winner: true,
+      options: [{
+          text: "Glad I could help. Have a nice day.",
+          farewell: true,}],
+      good: true,
+      morale: 1,
+    }
+
 }];
