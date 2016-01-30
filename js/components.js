@@ -17,14 +17,15 @@ window.OurGame.room = function(gamestate, people, dialog, pickPerson, report = (
       </div>);
   }
   return <div id="room">
-          <div  className='patients' >
-            {Rooms}
-          </div>
-          {dialog}
-          {report}
-          <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
-        </div>;
-};
+    <div  className='patients' >
+    {Rooms}
+    </div>
+    {dialog}
+    {report}
+    <div className="timer">{gamestate.timeToString(gamestate.time)}</div>
+    <div className="messageBox"></div>
+    </div>;
+  };
 
 window.OurGame.makeDialog = function(person, personStepCallback, popupclose) {
   var choices = [];
