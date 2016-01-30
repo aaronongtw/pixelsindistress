@@ -103,30 +103,54 @@ var gender: ['M', 'F', 'F', 'M', 'M', 'F', 'M', 'M', 'F', 'M', 'M', 'M12', 'F', 
     // 'Luke Wolf'
 
 
-
-
 var gamestate = {
     time: 320,
     people: [{
-        name: "John"
+        name: "John",
+        conversation: window.OurGame.conversations[0],
+        state: null
     }, {
-        name: "Bob"
+        name: "Bob",
+        conversation: window.OurGame.conversations[0],
+        state: null
     }, {
-        name: "Rob"
+        name: "Rob",
+        conversation: window.OurGame.conversations[0],
+        state: null
     }, ],
-    activePerson: -1
+    activePerson: null
 };
 
 var pickPerson = function(index) {
-  console.log(arguments);
-  gamestate.activePerson = index;
+  gamestate.activePerson = gamestate.people[index];
+
+  if (gamestate.activePerson.state == null) {
+    gamestate.activePerson.state = "start";
+    gamestate.activePerson.stress = gamestate.activePerson.conversation.start.initialStress;
+    gamestate.activePerson.maxStress = gamestate.activePerson.conversation.start.maxStress;
+  }
+
+  renderScreen();
+};
+
+var personStepCallback = function(person, choice) {
+
+  var nextStep = person.conversation[choice.next];
+
+  person.stress += nextStep.deltaStress || 0;
+  person.state = choice.next;
+
   renderScreen();
 };
 
 var renderScreen = function() {
-    if (gamestate.activePerson >= 0 && gamestate.people.length) {
-        var dialog = window.OurGame.makeDialog(gamestate.people[gamestate.activePerson]);
+    if (gamestate.activePerson) {
+        var dialog = window.OurGame.makeDialog(gamestate.activePerson, personStepCallback);
     }
+
+    var personStep = function(person, choice) {
+
+    };
     ReactDOM.render(
         window.OurGame.room(gamestate.time, gamestate.people, dialog, pickPerson),
         document.getElementById('maindiv')
