@@ -84,3 +84,45 @@ body {
 .bad {
   color:red;
 }
+
+
+.popupMessages {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 40%;
+  width: 400px;
+  height: 150px;
+  margin-left: -200px;
+  margin-top: -75px;
+}
+
+.popupMessages div.red {
+  color: red;
+}
+.popupMessages div.green {
+  color: green;
+}
+
+.popupMessages div {
+  animation: popupFrames linear 2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes popupFrames {
+  0% {
+    opacity: 0.5;
+    transformation: scaleX(1), scaleY(1);
+    font-size: 12px;
+  }
+  20% {
+    opacity: 1;    
+    font-size: 16px;
+    transformation: scaleX(1.2), scaleY(1.2);
+  }
+  100% {
+    opacity: 0.8;
+    font-size: 24px;
+    transformation: scaleX(2.5), scaleY(2.5);
+  }
+}

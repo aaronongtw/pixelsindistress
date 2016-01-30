@@ -18,13 +18,14 @@ var randomCharList = function() {
     return CharList
 };
 
-var maxTimeTicks = 80;
+var maxTimeTicks = 40;
 
 var gamestate = {
     dayNo: 0,
     time: 0,
     dayInProgress: false,
     people: [],
+    messages: [],
     activePerson: null,
     showReport: false,
     playerStats : {
@@ -38,6 +39,7 @@ var startNewDay = function() {
   gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
+  gamestate.messages = [];
   gamestate.dayInProgress = true;
   gamestate.people = randomCharList();
   gamestate.todaysPeople = gamestate.people.slice();
@@ -70,6 +72,9 @@ var pickPerson = function(index) {
 var personStepCallback = function(person, choice) {
     if (!gamestate.dayInProgress) {
       return;
+    }
+    if (person.animationOnly) {
+        return;
     }
 
     if (choice.farewell) {
@@ -119,19 +124,26 @@ var personLeave = function(person) {
 };
 
 var checkPersonLeave = function(person) {
+  if (person.animationOnly) {
+    return;
+  }
   if (person.stress >= person.maxStress) {
-    if (!person.exploding) {
-      gamestate.playerStats.morale--;
-      gamestate.playerStats.money-=10;
-      person.exploding = true;
-    } else {
-      personLeave(person);
-    }
+    person.animationOnly = true;
+    gamestate.playerStats.morale-=2;
+    gamestate.playerStats.money-=10;
+    person.exploding = true;
+
+    setTimeout(function() { personLeave(person); }, 2000);
+    gamestate.newAlert('-$10 -2 Morale','red');
   }
   if (person.stress <= 0) {
-    personLeave(person);
+    person.animationOnly = true;
+    setTimeout(function() { personLeave(person); }, 2000);
+
     gamestate.playerStats.morale++;
     gamestate.playerStats.money+=10;
+    gamestate.newAlert('+$10 +1 Morale', 'green');
+    gamestate.newAlert('Problem Solved', 'green');
   }
 };
 
@@ -173,6 +185,20 @@ gamestate.timeToString = function(time) {
     }
 
     return "" + hours + ":" + minutes + "" + ampm;
+}
+
+gamestate.newAlert = function(alert, colour) {
+    console.log('ALERT ', alert, colour);
+    var al = {
+        text: alert,
+        colour: colour,
+    };
+    gamestate.messages.push(al);
+
+    window.setTimeout(function() {
+        gamestate.messages.splice(gamestate.messages.indexOf(al), 1);
+        renderScreen();        
+    }, 2000);
 }
 
 var timeProgress = function() {
