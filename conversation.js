@@ -17,7 +17,7 @@ window.OurGame.conversations = [{
         deltaStress: +5,
         text: "I did consider it a number of times, but he's wearing stupid glasses, I'm worried glass will cut his eyes",
         options: [{
-            text: "That sounds like a good thing to happen",
+            text: "Meh, more pain more gain.",
             next: "doPunchHim"
         }, {
             text: "Oh I see, we need to come up with something else",
@@ -25,12 +25,18 @@ window.OurGame.conversations = [{
         }, ]
     },
 
+    doPunchHim: {
+        deltaStress: -30,
+        text: "I feel much better. Thanks Doc",
+        winner: true,
+    },
+
     friendship: {
         deltaStress: -1,
         text: "Well, we can't agree on how to tackle our project",
         options: [{
-            text: "Is that an important project?",
-            next: "project"
+            text: "Have you tried punching him in the face?",
+            next: 'punchHim'
         }, {
             text: "Are there reasons why he could actually know about psychology?",
             next: "challengeThought"
@@ -41,12 +47,11 @@ window.OurGame.conversations = [{
         deltaStress: -1,
         text: "He says he spends a lot of time with a friend who's been through psychological help",
         options: [{
-            text: "Does he have any other experience in mental health?",
-            next: "challengeThought2"
+            text: "You know nothing, Jon Snow",
+            next: "hesaclown"
         }, {
-            text: "Now that you've mentioned it, how do you feel about working with him?",
-            next: "phase4"
-        }, ],
+            text: "I think he's crazy, maybe punch him",
+            next: 'punchHim'        }, ],
     },
 
     hesaclown: {
