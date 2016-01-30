@@ -66,6 +66,7 @@ min-height: 200px;
   top: 20px;
   width: 860px;
   height: 560px;
+  z-index: 1;
 }
 
 .startScreen h1 {
