@@ -112,7 +112,7 @@ window.OurGame.dayReport = function(gameState, startNextDayFn, buyNurse, buyChoc
   if (gameState.dayInProgress || gameState.gameOver) {
     nextBtn = null;
   }
-  var buyNursebtn = <div className="shop" onClick={buyNurse}>Buy a Hot Nurse<br/>Makes time go slower.<br/>$80</div>;
+  var buyNursebtn = <div className="shop" onClick={buyNurse}>Buy a Hot Nurse<br/>Makes time go slower.<br/>$100</div>;
   if (gameState.dayInProgress || gameState.gameOver || gameState.playerStats.money < 100 || gameState.nurse == 1) {
     buyNursebtn = null;
   }

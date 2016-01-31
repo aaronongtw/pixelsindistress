@@ -38,7 +38,7 @@ window.OurGame.characters = [{
     name: 'August Bartkowiak',
     gender: 'M',
     age: 23,
-    description: '',
+    description: "August has very low self esteem. He also looks like an old avocado.",
     startStress: 45,
     maxStress: 80,
     avatarPosition: 8,

@@ -97,6 +97,7 @@ min-height: 200px;
 .startScreen h4 {
   text-align: center;
   margin-top: 50px;
+  margin: 10px;
 }
 
 .startScreen .startBtn {
