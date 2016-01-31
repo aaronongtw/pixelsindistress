@@ -23,6 +23,7 @@ var maxTimeTicks = 100;
 var stressTick = 0.6;
 
 
+
 var gamestate = {
     nurse: 0,
     chocolate: 0,
@@ -136,12 +137,17 @@ var checkPersonLeave = function(person) {
     gamestate.playerStats.morale-=2;
     gamestate.playerStats.money-=10;
     person.exploding = true;
-
+    var sound = new Howl({
+      urls: ['assets/death.wav']
+    }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.newAlert('-$10 -2 Morale','red');
   }
   if (person.stress <= 0) {
     person.animationOnly = true;
+    var sound = new Howl({
+      urls: ['assets/magical.ogg']
+    }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.playerStats.morale++;
     gamestate.playerStats.money+=10;
@@ -246,6 +252,9 @@ var dayOver = function() {
   gamestate.dayInProgress = false;
   gamestate.showReport = true;
   gamestate.activePerson = null;
+  var sound = new Howl({
+    urls: ['assets/round_end.wav']
+  }).play();
 
   if (gamestate.playerStats.money < 0 || gamestate.playerStats.morale < 0) {
     gamestate.gameOver = true;
