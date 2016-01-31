@@ -101,7 +101,7 @@ window.OurGame.dayReport = function(gameState, startNextDayFn, buyNurse, buyChoc
   var choices = [];
   for (var i = 0; i <gameState.todaysPeople.length; i++) {
     var currentStress = gameState.todaysPeople[i].stress
-    var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
+    var stressChange = Math.floor(gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress)
 
     choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress:
       <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress <gameState.todaysPeople[i].maxStress ? "good":"bad"}>{(currentStress < 1) ? "HAPPY!" : currentStress <gameState.todaysPeople[i].maxStress ? "Alive" : 'Dead'}</span> </li>);

@@ -390,7 +390,7 @@ window.OurGame.conversations = [{
           next: "talk",
         }, {
           text: "What are you doing here? I thought I told you not to come back!",
-          next: "angry",
+          next: "screw",
         }]
     },
 
@@ -410,7 +410,7 @@ window.OurGame.conversations = [{
         text: "Hey man, there is something I need you to do for me.",
         options: [{
             text: "What can I help you with?",
-            next: 'screw'
+            next: 'question'
         }, {
             text: "This seems alittle dodgy. What do you want?",
             next: "challenge"
@@ -421,66 +421,42 @@ window.OurGame.conversations = [{
     },
 
     challenge: {
-        deltaStress: -5,
+        deltaStress: -3,
         text: "Nothing, I just need you to pass a message to somebody for me",
         options: [{
-            text: "I would understand why if I were you. Have you seen the mirror lately?",
-            next: 'screw'
+            text: "What is it?",
+            next: 'question'
         }, {
-            text: "Often times we feel very small in this world. We think the world hates us but we fail to see the good things in life.",
-            next: "friendship"
+            text: "Sorry, can't be of help.",
+            next: "away"
         }, ],
     },
 
-    screw: {
-        deltaStress: +5,
-        text: "Why would you say such a thing!",
+    away: {
+        deltaStress: -3,
+        text: "Fine, if you change your mind let me know.",
         winner: true,
         options: [{
-            text: "Glad I could help. Have a nice day.",
+            text: "Please don't, I'll call the police the next time.",
             farewell: true,}],
         good: false,
-        morale: -2,
+        morale: 2,
     },
 
-    friendship: {
+    question: {
         deltaStress: -5,
-        text: "What good things have I got in my life? I've never hurt anyone and done anything bad.",
+        text: "If you meet a man named Huey Hanney, 35. Tell him the chickens are on the roof near the pond",
         options: [{
-            text: "Why do you feel that way?",
+            text: "The chickens are out on the roof near the pond?",
             next: "inter"
         }, {
-            text: "Come to think about it, not alot I guess.",
-            next: "screw"
+            text: "Sorry I don't understand. I can't help you",
+            next: "away"
         }, ],
     },
     inter: {
         deltaStress: -5,
-        text: "I feel that way because I feel all alone in this world. No one even knows I'm alive.",
-        options: [{
-            text: "That is not true August. I care, and I want to be there to help you.",
-            next: 'thanks'
-        }, {
-            text: "What was your name again?",
-            next: "screw"
-        }],
-    },
-
-    thanks: {
-        deltaStress: -1,
-        text: "Thank you Doctor, I'll definitely come back to get your help",
-        options: [{
-            text: "Please do.",
-            next: "win"
-        }, {
-            text: "Nah, You make me depressed.",
-            next: "screw"
-        }, ],
-    },
-
-    win: {
-        deltaStress: -20,
-        text: "Thank you.",
+        text: "He will undertand.",
         winner: true,
         good: true,
         morale: 1,
@@ -492,20 +468,20 @@ window.OurGame.conversations = [{
     },
 
     nextVisit: {
-        deltaStress: -10,
-        text: "I'm back Doctor, thank you for seeing me. I'm glad I talked to you before, I've been feeling slightly better since then.",
+        deltaStress: -30,
+        text: "Did you pass my message?",
         options: [{
-          text: "Ofcourse. Lets talk.",
+          text: "I did.",
           next: "talk",
         }, {
-          text: "What are you doing here? I thought I told you not to come back!",
-          next: "angry",
+          text: "No, not yet",
+          next: "away",
         }]
     },
 
     talk: {
-      deltaStress: -20,
-      text: "*talk talk talk talk*. I feel much better now. Thank you so much.",
+      deltaStress: -300,
+      text: "I will remember this",
       winner: true,
       options: [{
           text: "Glad I could help. Have a nice day.",
@@ -514,4 +490,83 @@ window.OurGame.conversations = [{
       morale: 1,
     }
 
-}];
+},{
+    start: {
+        text: "Tell me something, where can I find them?",
+        options: [{
+            text: "What?",
+            next: 'question'
+        }, {
+            text: "Over the rainbow.",
+            next: "fail"
+        }, {
+            text: "Where can you find what?",
+            next: "where"
+        }, ],
+    },
+
+    question: {
+        text: "Where can I find the chickens?",
+        options: [{
+            text: "They are in the shed.",
+            next: 'fail'
+        }, {
+            text: "I don't know.",
+            next: "fail"
+        }, {
+            text: "Near the pond.",
+            next: "pond"
+        }, ],
+    },
+
+    fail: {
+        deltaStress: -1,
+        text: "You know nothing doc. Nothing.",
+        winner: true,
+        options: [{
+            text: "...",
+            farewell: true,}],
+        good: true,
+        morale: 0,
+    },
+
+    where: {
+        text: "The chickens doc, the chickens.",
+        options: [{
+            text: "Under my bed.",
+            next: "fail"
+        }, {
+            text: "Sorry I don't understand. I can't help you.",
+            next: "fail"
+        }, {
+            text: "Near the pond.",
+            next: "pond"
+        }, ],
+    },
+
+
+    pond: {
+        text: "Where near the pond?",
+        options: [{
+            text: "Inside the oven.",
+            next: 'fail'
+        }, {
+            text: "On the Roof.",
+            next: "win"
+        }, {
+            text: "I don't know.",
+            next: "fail"
+        }, ],
+    },
+    talk: {
+      deltaStress: -500,
+      text: "Thank you.",
+      winner: true,
+      options: [{
+          text: "Glad I could help. Have a nice day.",
+          farewell: true,}],
+      good: true,
+      morale: 1,
+    },}
+    ];
+

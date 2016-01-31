@@ -44,30 +44,30 @@ window.OurGame.characters = [{
     avatarPosition: 8,
     conversation: window.OurGame.conversations[4]
 }, {
-    name: 'Andy Colston',
+    name: 'NO INFORMATION',
     gender: 'NO INFORMATION',
     age: 35,
     description: 'NO INFORMATION',
-    startStress: 35,
-    maxStress: 50,
+    startStress: 100,
+    maxStress: 500,
     avatarPosition: 10,
     conversation: window.OurGame.conversations[5]
 }, {
     name: 'Huey Hanney',
     gender: 'M',
     age: 35,
-    description: '',
-    startStress: 35,
-    maxStress: 50,
+    description: "He is always asking strange things. Last few interactions with him hasn't made much sense.",
+    startStress: 1,
+    maxStress: 500,
     avatarPosition: 11,
-    conversation: window.OurGame.conversations[4]
+    conversation: window.OurGame.conversations[6]
 }, {
     name: 'Omar Groom',
     gender: 'M',
-    age: 35,
+    age: 25,
     description: '',
-    startStress: 35,
-    maxStress: 50,
+    startStress: 15,
+    maxStress: 30,
     avatarPosition: 12,
     conversation: window.OurGame.conversations[0]
 }, {
