@@ -19,8 +19,9 @@ var randomCharList = function() {
 };
 
 
-var maxTimeTicks = 40;
-var stressTick = 1;
+var maxTimeTicks = 100;
+var stressTick = 0.6;
+
 
 
 var gamestate = {
@@ -41,7 +42,6 @@ var gamestate = {
 var startNewDay = function() {
   gamestate.startdaymoney = gamestate.playerStats.money
   gamestate.startdaymorale = gamestate.playerStats.morale
-  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.messages = [];
@@ -137,12 +137,19 @@ var checkPersonLeave = function(person) {
     gamestate.playerStats.morale-=2;
     gamestate.playerStats.money-=10;
     person.exploding = true;
-
+    var sound = new Howl({
+      urls: ['assets/death.wav'],
+      volume:0.04
+    }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.newAlert('-$10 -2 Morale','red');
   }
   if (person.stress <= 0) {
     person.animationOnly = true;
+    var sound = new Howl({
+      urls: ['assets/magical.ogg'],
+      volume:0.04
+    }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.playerStats.morale++;
     gamestate.playerStats.money+=10;
@@ -247,8 +254,16 @@ var dayOver = function() {
   gamestate.dayInProgress = false;
   gamestate.showReport = true;
   gamestate.activePerson = null;
+  var sound = new Howl({
+    urls: ['assets/round_end.wav'],
+    volume:0.04
+  }).play();
 
-  if (gamestate.playerStats.money < 0 || gamestate.playerStats.morality < 0) {
+  if (gamestate.playerStats.money < 0 || gamestate.playerStats.morale < 0) {
     gamestate.gameOver = true;
+    var sound = new Howl({
+      urls: ['assets/gameover.wav'],
+      volume:0.04
+    }).play();
   }
 };
