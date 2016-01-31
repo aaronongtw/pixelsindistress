@@ -261,5 +261,9 @@ var dayOver = function() {
 
   if (gamestate.playerStats.money < 0 || gamestate.playerStats.morale < 0) {
     gamestate.gameOver = true;
+    var sound = new Howl({
+      urls: ['assets/gameover.wav'],
+      volume:0.04
+    }).play();
   }
 };
