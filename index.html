@@ -1,21 +1,30 @@
-<title>Pixels in Distress</title>
-<link rel=stylesheet href=main.css>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Pixels in Distress</title>
+    <script src="bower_components/react/react-bower-0.14.7/react.js"></script>
+    <script src="bower_components/react/react-bower-0.14.7/react-dom.js"></script>
+    <link href="main.css" rel=stylesheet>
+    <link href="dialog.css" rel=stylesheet>
+    <link href="report.css" rel=stylesheet>
+    <link href="profile.css" rel=stylesheet>
+    <link href="progressBar.css" rel=stylesheet>
+    <link href="conversation.css" rel=stylesheet>
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link href="bower_components/csshake/dist/csshake.min.css" rel='stylesheet' type='text/css'>
+</head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="js/pixi.min.js"></script>
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <div id="room">
-        <p id='p1' class='stresslevel'>10</p>
-        <button class='avatar' id='p1c'></button>
-        <p id='p2' class='stresslevel'>10</p>
-        <button class='avatar' id='p2c'></button>
-        <p id='p3' class='stresslevel'>10</p>
-        <button class='avatar' id='p3c'></button>
-        <p id='p4' class='stresslevel'>10</p>
-        <button class='avatar' id='p4c'></button>
-        <p id='p5' class='stresslevel'>10</p>
-        <button class='avatar' id='p5c'></button>
-    </div>
+    <div id="maindiv"></div>
+    <script>window.OurGame = {};</script>
+    <script type="text/babel" src="conversation.js"></script>
+    <script type="text/babel" src="js/content.js"></script>
+    <script type="text/babel" src="js/components.js"></script>
+    <script type="text/babel" src="game.js"></script>
+    <script src="deps/browser.min.js"></script>
+    <audio id="audio" src="assets/huh.wav" ></audio>
 </body>
+
+</html>
