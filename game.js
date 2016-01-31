@@ -19,8 +19,9 @@ var randomCharList = function() {
 };
 
 
-var maxTimeTicks = 400;
-var stressTick = 1;
+var maxTimeTicks = 100;
+var stressTick = 0.6;
+
 
 
 var gamestate = {
@@ -41,7 +42,6 @@ var gamestate = {
 var startNewDay = function() {
   gamestate.startdaymoney = gamestate.playerStats.money
   gamestate.startdaymorale = gamestate.playerStats.morale
-  gamestate.playerStats.morale++;
   gamestate.dayNo++;
   gamestate.time = 0;
   gamestate.messages = [];
