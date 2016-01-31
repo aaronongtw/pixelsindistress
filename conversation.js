@@ -1,7 +1,7 @@
 window.OurGame.conversations = [{
     start: {
         deltaStress: 0,
-        text: "Hi, I've been hating my frined Aaron lately, because he's incompetent in psychology, but highly exaggerated self-esteem",
+        text: "Hi, I've been hating my friend Aaron lately, because he's incompetent in psychology, but highly exaggerated self-esteem",
         options: [{
             text: "Have you tried punching him in the face?",
             next: 'punchHim'
