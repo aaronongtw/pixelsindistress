@@ -407,22 +407,22 @@ window.OurGame.conversations = [{
 
 },{
     start: {
-        text: "Doctor, I don't know what to do, everytime I look at myself in the mirror, I feel sad.",
+        text: "Hey man, there is something I need you to do for me.",
         options: [{
-            text: "I would feel sad too if I were you.",
+            text: "What can I help you with?",
             next: 'screw'
         }, {
-            text: "You know, sometimes I feel the same way too.",
-            next: "friendship"
+            text: "This seems alittle dodgy. What do you want?",
+            next: "challenge"
         }, {
-            text: "Do you feel inadequate?",
-            next: "challengeThought"
+            text: "Go away.",
+            next: "away"
         }, ],
     },
 
-    challengeThought: {
+    challenge: {
         deltaStress: -5,
-        text: "I just don't understand why the world hates me so much. What have I done to deserve this?",
+        text: "Nothing, I just need you to pass a message to somebody for me",
         options: [{
             text: "I would understand why if I were you. Have you seen the mirror lately?",
             next: 'screw'

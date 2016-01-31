@@ -248,7 +248,7 @@ var dayOver = function() {
   gamestate.showReport = true;
   gamestate.activePerson = null;
 
-  if (gamestate.playerStats.money < 0 || gamestate.playerStats.morality < 0) {
+  if (gamestate.playerStats.money < 0 || gamestate.playerStats.morale < 0) {
     gamestate.gameOver = true;
   }
 };

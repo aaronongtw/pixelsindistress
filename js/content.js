@@ -45,13 +45,13 @@ window.OurGame.characters = [{
     conversation: window.OurGame.conversations[4]
 }, {
     name: 'Andy Colston',
-    gender: 'M',
+    gender: 'NO INFORMATION',
     age: 35,
-    description: '',
+    description: 'NO INFORMATION',
     startStress: 35,
     maxStress: 50,
     avatarPosition: 10,
-    conversation: window.OurGame.conversations[4]
+    conversation: window.OurGame.conversations[5]
 }, {
     name: 'Huey Hanney',
     gender: 'M',
