@@ -18,14 +18,14 @@ window.OurGame.conversations = [{
         text: "I did consider it a number of times, but he's wearing stupid glasses, I'm worried glass will cut his eyes",
         options: [{
             text: "Meh, more pain more gain.",
-            next: "doPunchHim"
+            next: "punch"
         }, {
             text: "Oh I see, we need to come up with something else",
             next: "start",
         }, ]
     },
 
-    doPunchHim: {
+    punch: {
         deltaStress: -30,
         text: "I feel much better. Thanks Doc",
         winner: true,
@@ -558,7 +558,7 @@ window.OurGame.conversations = [{
             next: "fail"
         }, ],
     },
-    talk: {
+    win: {
       deltaStress: -500,
       text: "Thank you.",
       winner: true,
