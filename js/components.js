@@ -104,7 +104,7 @@ window.OurGame.dayReport = function(gameState, startNextDayFn, buyNurse, buyChoc
     var stressChange = gameState.todaysPeople[i].stress-gameState.todaysPeople[i].startOfDayStress
 
     choices.push(<li key={i}>{gameState.todaysPeople[i].name},<br/> Change in Stress:
-      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress <gameState.todaysPeople[i].maxStress ? "good":"bad"}>{(currentStress < 1) ? "HAPPY!" : currentStress <gameState.todaysPeople[i].maxStress ? "Alive" : 'Dead'}</span> </li>);
+      <span className={stressChange <= 0 ? "good":"bad"}>{stressChange}</span><br/> Status: <span className={currentStress <gameState.todaysPeople[i].maxStress ? "good":"bad"}>{(currentStress < 1) ? "HAPPY!" : currentStress <gameState.todaysPeople[i].maxStress ? "Stable" : 'Intensive Care'}</span> </li>);
 
   }
 
@@ -147,7 +147,7 @@ var getStartScreen = function(gamestate) {
       <h1>Pixels in Distress</h1>
       <h2>Virtual Clinic for Mental Health</h2>
       <h2>Brought to you by people who escaped a real one.</h2>
-      <h4>Treat as many patients as possible and prevent them from dying. If your money or morale reaches zero, the game is over.</h4>
+      <h4>Treat as many patients as possible and prevent them from being sent to Intensive Care. If your money or morale reaches zero, the game is over.</h4>
       <div className="startBtn" onClick={gamestate.startNewDay}>Begin</div>
     </div>;
 };

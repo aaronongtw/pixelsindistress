@@ -19,7 +19,7 @@ var randomCharList = function() {
 };
 
 
-var maxTimeTicks = 40;
+var maxTimeTicks = 400;
 var stressTick = 1;
 
 

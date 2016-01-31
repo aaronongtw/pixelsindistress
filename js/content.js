@@ -110,11 +110,11 @@ window.OurGame.characters = [{
     name: 'Carolee Peevy',
     gender: 'F',
     age: 34,
-    description: '',
+    description: 'Mum of two wonderful kids, and wife to a great husband. After returning to uni I realised that my drinking habits have to be put under control',
     startStress: 10,
-    maxStress: 30,
+    maxStress: 40,
     avatarPosition: 13,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversationsPaul[0]
 }, {
     name: 'Althea Basso',
     gender: 'F',
