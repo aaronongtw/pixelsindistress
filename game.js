@@ -138,7 +138,8 @@ var checkPersonLeave = function(person) {
     gamestate.playerStats.money-=10;
     person.exploding = true;
     var sound = new Howl({
-      urls: ['assets/death.wav']
+      urls: ['assets/death.wav'],
+      volume:0.04
     }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.newAlert('-$10 -2 Morale','red');
@@ -146,7 +147,8 @@ var checkPersonLeave = function(person) {
   if (person.stress <= 0) {
     person.animationOnly = true;
     var sound = new Howl({
-      urls: ['assets/magical.ogg']
+      urls: ['assets/magical.ogg'],
+      volume:0.04
     }).play();
     setTimeout(function() { personLeave(person); }, 2000);
     gamestate.playerStats.morale++;
@@ -253,7 +255,8 @@ var dayOver = function() {
   gamestate.showReport = true;
   gamestate.activePerson = null;
   var sound = new Howl({
-    urls: ['assets/round_end.wav']
+    urls: ['assets/round_end.wav'],
+    volume:0.04
   }).play();
 
   if (gamestate.playerStats.money < 0 || gamestate.playerStats.morale < 0) {
