@@ -69,7 +69,7 @@ window.OurGame.characters = [{
     startStress: 15,
     maxStress: 30,
     avatarPosition: 12,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Pricilla Nolte',
     gender: 'F',
@@ -78,7 +78,7 @@ window.OurGame.characters = [{
     startStress: 5,
     maxStress: 15,
     avatarPosition: 2,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Sherrill Deatherage',
     gender: 'F',
@@ -87,7 +87,7 @@ window.OurGame.characters = [{
     startStress: 80,
     maxStress: 100,
     avatarPosition: 3,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Amira Holtkamp',
     gender: 'F',
@@ -96,7 +96,7 @@ window.OurGame.characters = [{
     startStress: 40,
     maxStress: 60,
     avatarPosition: 6,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Daniella Littler',
     gender: 'F',
@@ -105,7 +105,7 @@ window.OurGame.characters = [{
     startStress: 20,
     maxStress: 40,
     avatarPosition: 9,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }, {
     name: 'Carolee Peevy',
     gender: 'F',
@@ -123,7 +123,7 @@ window.OurGame.characters = [{
     startStress: 10,
     maxStress: 30,
     avatarPosition: 15,
-    conversation: window.OurGame.conversations[0]
+    conversation: window.OurGame.conversations[1]
 }]
 
 // Althea Basso

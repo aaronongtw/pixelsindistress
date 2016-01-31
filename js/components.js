@@ -147,7 +147,7 @@ var getStartScreen = function(gamestate) {
       <h1>Pixels in Distress</h1>
       <h2>Virtual Clinic for Mental Health</h2>
       <h2>Brought to you by people who escaped a real one.</h2>
-      <h4>Treat as many patients as possible and prevent them from being going deranged. If your money or morale reaches zero, the game is over.</h4>
+      <h4>Treat as many patients as possible and prevent them from going deranged. If your money or morale reaches zero, the game is over.</h4>
       <div className="startBtn" onClick={gamestate.startNewDay}>Begin</div>
     </div>;
 };

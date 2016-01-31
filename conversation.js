@@ -1,6 +1,7 @@
 window.OurGame.conversations = [{
     start: {
-        text: "Hi, I've been hating my frined Aaron lately, because he's incompetent in psychology, but highly exaggerated self-esteem",
+        deltaStress: 0,
+        text: "Hi, I've been hating my friend Aaron lately, because he's incompetent in psychology, but highly exaggerated self-esteem",
         options: [{
             text: "Have you tried punching him in the face?",
             next: 'punchHim'
@@ -72,6 +73,7 @@ window.OurGame.conversations = [{
     }
 }, {
     start: {
+        deltaStress: 0,
         text: "Hi, I've been having to deal with my Ukrainian friend, he hates me, It's been giving me alot of psychological stress, he claims that I have an exaggerated self-esteem but he doesn't understand that my positivity is what keeps things moving",
         options: [{
             text: "Have you tried kicking him in the balls?",
@@ -133,6 +135,7 @@ window.OurGame.conversations = [{
     }
 }, {
     start: {
+        deltaStress: 0,
         text: "Hi, I need drugs. I have depression",
         options: [{
             text: "Okay.",
@@ -215,6 +218,7 @@ window.OurGame.conversations = [{
     }
 }, {
     start: {
+        deltaStress: 0,
         text: "Today so stupid. Pizza so bad and Aaron is so mean to me.",
         options: [{
             text: "Grow some balls?",
@@ -298,6 +302,7 @@ window.OurGame.conversations = [{
     }
 }, {
     start: {
+        deltaStress: 0,
         text: "Doctor, I don't know what to do, everytime I look at myself in the mirror, I feel sad.",
         options: [{
             text: "I would feel sad too if I were you.",
@@ -407,6 +412,7 @@ window.OurGame.conversations = [{
 
 },{
     start: {
+        deltaStress: 0,
         text: "Hey man, there is something I need you to do for me.",
         options: [{
             text: "What can I help you with?",
@@ -492,6 +498,7 @@ window.OurGame.conversations = [{
 
 },{
     start: {
+        deltaStress: 0,
         text: "Tell me something, where can I find them?",
         options: [{
             text: "What?",
@@ -506,6 +513,7 @@ window.OurGame.conversations = [{
     },
 
     question: {
+        deltaStress: 0,
         text: "Where can I find the chickens?",
         options: [{
             text: "They are in the shed.",
@@ -531,6 +539,7 @@ window.OurGame.conversations = [{
     },
 
     where: {
+        deltaStress: 0,
         text: "The chickens doc, the chickens.",
         options: [{
             text: "Under my bed.",
@@ -546,6 +555,7 @@ window.OurGame.conversations = [{
 
 
     pond: {
+        deltaStress: 0,
         text: "Where near the pond?",
         options: [{
             text: "Inside the oven.",
@@ -559,6 +569,7 @@ window.OurGame.conversations = [{
         }, ],
     },
     win: {
+        deltaStress: 0,
       deltaStress: -500,
       text: "Thank you.",
       winner: true,
